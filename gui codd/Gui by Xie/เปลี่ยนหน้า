@@ -1,0 +1,94 @@
+private: System::Void button52_Click(System::Object^ sender, System::EventArgs^ e) {
+	//เมทริกซ์
+	button56->Visible = true;
+	button57->Visible = true;
+	button58->Visible = true;
+	button59->Visible = true;
+	button60->Visible = true;
+	button61->Visible = true;
+	button62->Visible = true;
+
+	button3->Visible = false;
+	button13->Visible = false;
+	button8->Visible = false;
+	button4->Visible = false;
+	button9->Visible = false;
+	button14->Visible = false;
+	button5->Visible = false;
+	button10->Visible = false;
+	button15->Visible = false;
+
+	button22->Visible = false;
+	button23->Visible = false;
+	button24->Visible = false;
+	button25->Visible = false;
+	button26->Visible = false;
+	button53->Visible = false;
+	button55->Visible = false;
+	button63->Visible = false;
+	button64->Visible = false;
+
+
+
+
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	//แคล
+	button3->Visible = true;
+	button13->Visible = true;
+	button8->Visible = true;
+	button4->Visible = true;
+	button9->Visible = true;
+	button14->Visible = true;
+	button5->Visible = true;
+	button10->Visible = true;
+	button15->Visible = true;
+
+	button56->Visible = false;
+	button57->Visible = false;
+	button58->Visible = false;
+	button59->Visible = false;
+	button60->Visible = false;
+	button61->Visible = false;
+	button62->Visible = false;
+
+	button22->Visible = false;
+	button23->Visible = false;
+	button24->Visible = false;
+	button25->Visible = false;
+	button26->Visible = false;
+	button53->Visible = false;
+	button55->Visible = false;
+	button63->Visible = false;
+	button64->Visible = false;
+}
+private: System::Void button54_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ตรีโกณ
+	button22->Visible = true;
+	button23->Visible = true;
+	button24->Visible = true;
+	button25->Visible = true;
+	button26->Visible = true;
+	button53->Visible = true;
+	button55->Visible = true;
+	button63->Visible = true;
+	button64->Visible = true;
+
+	button56->Visible = false;
+	button57->Visible = false;
+	button58->Visible = false;
+	button59->Visible = false;
+	button60->Visible = false;
+	button61->Visible = false;
+	button62->Visible = false;
+
+	button3->Visible = false;
+	button13->Visible = false;
+	button8->Visible = false;
+	button4->Visible = false;
+	button9->Visible = false;
+	button14->Visible = false;
+	button5->Visible = false;
+	button10->Visible = false;
+	button15->Visible = false;
+}

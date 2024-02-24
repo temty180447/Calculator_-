@@ -1,0 +1,29 @@
+// ตรวจสอบว่า textBox1 มีข้อมูลอยู่หรือไม่
+if (!String::IsNullOrEmpty(textBox1->Text)) {
+	// แยกรับค่าจาก textBox1 ออกเป็นสตริง
+	String^ input = textBox1->Text;
+
+	// แยกรับเศษและส่วนโดยใช้ฟังก์ชัน Split
+	array<String^>^ parts = input->Split(' ');
+
+	// ตรวจสอบว่าได้เศษและส่วนหรือไม่
+	if (parts->Length == 2) {
+		// แปลงเศษและส่วนเป็น double
+		double fractionPart = Convert::ToDouble(parts[0]);
+		double wholePart = Convert::ToDouble(parts[1]);
+
+		// หารเศษด้วยส่วน
+		double result = fractionPart / wholePart;
+
+		// แสดงผลลัพธ์ใน MessageBox
+		String^ resultMessage = L"เศษ: " + fractionPart.ToString() + L"\nส่วน: " + wholePart.ToString() + L"\nผลลัพธ์: " + result.ToString();
+		MessageBox::Show(resultMessage);
+
+		// นำผลลัพธ์ไปแทนที่ค่าใน textBox1
+		textBox1->Text = result.ToString();
+	}
+	else {
+		// ถ้ามีข้อผิดพลาดในการแยกข้อมูล
+		MessageBox::Show(L"โปรดป้อนค่าให้ถูกต้องในรูปแบบ 'เศษ ส่วน'");
+	}
+}

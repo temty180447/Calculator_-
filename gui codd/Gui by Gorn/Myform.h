@@ -1017,6 +1017,21 @@ private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^
 		textBox1->Text = System::Convert::ToString(first + second);
 	else if (Operator == '-')
 		textBox1->Text = System::Convert::ToString(first - second);
+
+	// เมื่อผู้ใช้คลิกปุ่ม Equals
+	// ให้นำค่าที่ผู้ใช้กรอกเข้ามาคำนวณ
+	// โดยเริ่มต้นจาก "sin(" ที่อยู่ใน textBox1 และสิ้นสุดด้วย ")"
+	String^ expression = textBox1->Text + ")";
+
+	// คำนวณผลลัพธ์ของค่า sin(expression)
+	double sinValue = System::Convert::ToDouble(textBox1->Text);
+	sinValue = Math::Sin(sinValue);
+
+	// แสดงผลลัพธ์ใน textBox1
+	textBox1->Text = System::Convert::ToString(sinValue);
+
+	// ปิดใช้งานปุ่ม Equals อีกครั้ง
+	btnEquals->Enabled = false;
 }
 
 private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1050,5 +1065,11 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 private: System::Void btnFraction_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 }
+private: System::Void btnSin_Click(System::Object^ sender, System::EventArgs^ e) {
+	textBox1->Text = "sin(";
+
+	// เปิดใช้งานปุ่ม Equals
+	btnEquals->Enabled = true;
+}	
 };
 }

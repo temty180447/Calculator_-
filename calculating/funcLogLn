@@ -12,3 +12,4 @@ double calLog(double num) {
 double calLn(double num) {
     return log(num);
 }
+

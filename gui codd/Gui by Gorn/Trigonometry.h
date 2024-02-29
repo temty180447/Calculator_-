@@ -44,18 +44,9 @@ private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^
 	else if (expression->StartsWith("ln(")) {
 		CalculateTrigonometricFunction(expression, "ln");
 	}
-
-	expression = ReplaceTrigonometricFunctions(expression);
-
-	try {
-	// คำนวณค่าโดยใช้ EvaluateExpression
-	double result = EvaluateExpression(expression);
-	// แสดงผลลัพธ์ใน textBox1
-	textBox1->Text = Convert::ToString(result);
-	}
-	catch (Exception^ ex) {
-	// หากเกิดข้อผิดพลาดในการคำนวณ
-	MessageBox::Show("Error: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	else if (expression == "e") {
+	// แสดงค่าของ "e" ใน textBox1
+	textBox1->Text = Math::E.ToString();
 	}
 
 }
@@ -104,8 +95,6 @@ void CalculateTrigonometricFunction(String^ expression, String^ function) {
 	textBox1->Text = System::Convert::ToString(result);
 }
 
-
-
 private: System::Void btnSin_Click(System::Object^ sender, System::EventArgs^ e) {
 	textBox1->Text += "sin(";
 }
@@ -136,6 +125,16 @@ private: System::Void btnArctan_Click(System::Object^ sender, System::EventArgs^
 private: System::Void btnLog_Click(System::Object^ sender, System::EventArgs^ e) {
 	textBox1->Text += "log(";
 }
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void btnLn_Click(System::Object^ sender, System::EventArgs^ e) {
 	textBox1->Text += "ln(";
+}
+private: System::Void btnE_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	textBox1->Text += "e";
+}
+private: System::Void btnPi_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	textBox1->Text += Math::PI.ToString();
 }

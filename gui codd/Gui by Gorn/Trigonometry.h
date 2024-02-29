@@ -45,6 +45,19 @@ private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^
 		CalculateTrigonometricFunction(expression, "ln");
 	}
 
+	expression = ReplaceTrigonometricFunctions(expression);
+
+	try {
+	// คำนวณค่าโดยใช้ EvaluateExpression
+	double result = EvaluateExpression(expression);
+	// แสดงผลลัพธ์ใน textBox1
+	textBox1->Text = Convert::ToString(result);
+	}
+	catch (Exception^ ex) {
+	// หากเกิดข้อผิดพลาดในการคำนวณ
+	MessageBox::Show("Error: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+
 }
 
 void CalculateTrigonometricFunction(String^ expression, String^ function) {

@@ -1,73 +1,94 @@
 #include <iostream>
+#include <stack>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
-int main()
-{
+// ฟังก์ชันตรวจสอบว่าเป็นตัวอักษรตัวเลขหรือไม่
+bool isOpran(char ch) {
+    return isdigit(ch) || ch == '.';
+}
 
-    string eq;
-    string s_num[100];
-    char symbol[100];
+// ฟังก์ชันคำนวณค่าของนิพจน์ที่เป็น opran
+double evaluateOpran(const string& opranStr) {
+    return stod(opranStr);
+}
 
-    cin >> eq;
+// ฟังก์ชันตรวจสอบความสำคัญของตัวดำเนินการ
+int precedence(char op) {
+    if (op == '+' || op == '-') return 1;
+    if (op == '*' || op == '/') return 2;
+    return 0;
+}
 
-    int cnt_sym = 0, cnt_num = 0; //ใช้นับตัวสัญลักษณ์และชุดตัวเลข
-    for(unsigned int i = 0; i < eq.length(); i++){
-        if(eq[i] == '+' || eq[i] == '-' || eq[i] == '*' || eq[i] == '/'){
-            symbol[cnt_sym] = eq[i];
-            cnt_sym++;
-        }
-        else{
-            s_num[cnt_num] += eq[i];
-            if (i == eq.length() - 1 || eq[i+1] == '+' || eq[i+1] == '-' || eq[i+1] == '*' || eq[i+1] == '/') cnt_num++;
+// ฟังก์ชันคำนวณผลลัพธ์ของนิพจน์
+double evaluateEqu(const string& equ) {
+    stack<double> oprans;
+    stack<char> optors;
+
+    string opranStr; // ใช้เก็บเลขหรือทศนิยม
+    for (char ch : equ) {
+        if (ch == ' ') continue; // ข้ามช่องว่าง
+        else if (isOpran(ch)) {
+            opranStr += ch; // เก็บเลขหรือทศนิยม
+        } else if (ch == '(') {
+            optors.push(ch);
+        } else if (ch == ')') {
+            oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขหรือทศนิยมลงใน stack
+            opranStr = ""; // รีเซ็ตค่าเพื่อรับตัวแปรใหม่
+            while (!optors.empty() && optors.top() != '(') {
+                double b = oprans.top(); oprans.pop();
+                double a = oprans.top(); oprans.pop();
+                char op = optors.top(); optors.pop();
+                if (op == '+') oprans.push(a + b);
+                else if (op == '-') oprans.push(a - b);
+                else if (op == '*') oprans.push(a * b);
+                else if (op == '/') oprans.push(a / b);
+            }
+            if (!optors.empty()) optors.pop(); // ลบวงเล็บซ้ายทิ้ง
+        } else { // เป็นตัวดำเนินการ
+            if (!opranStr.empty()) {
+                oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขหรือทศนิยมลงใน stack
+                opranStr = ""; // รีเซ็ตค่าเพื่อรับตัวแปรใหม่
+            }
+            while (!optors.empty() && precedence(ch) <= precedence(optors.top())) {
+                double b = oprans.top(); oprans.pop();
+                double a = oprans.top(); oprans.pop();
+                char op = optors.top(); optors.pop();
+                if (op == '+') oprans.push(a + b);
+                else if (op == '-') oprans.push(a - b);
+                else if (op == '*') oprans.push(a * b);
+                else if (op == '/') oprans.push(a / b);
+            }
+            optors.push(ch);
         }
     }
-    
-    double cng[1000]; //สร้างมาเก็บค่าตัวเลขที่มีค่าเปลี่ยนแปลงไป
-    for(int i = 0; i < cnt_num; i++){
-        cng[i] = stod(s_num[i]);
+
+    if (!opranStr.empty()) {
+        oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขหรือทศนิยมลงใน stack
     }
-    
-    for(int i = 0; i < cnt_sym;){
-        if(symbol[i] == '*' || symbol[i] == '/'){
-            if(symbol[i] == '*'){
-                cng[i] = cng[i] * cng[i+1];
-            }
-            else if(symbol[i] == '/'){
-                if(cng[i+1] != 0){
-                    cng[i] = cng[i] / cng[i+1];
-                }
-                else{
-                    cout << "Error!!" << endl;
-                    break;
-                }
-            }
-            for(int j = i; j < cnt_sym-1; j++){
-                symbol[j] = symbol[j+1]; //setลำดับsymbolใหม่
-            }
-            for(int j = i+1; j < cnt_num-1; j++){
-                cng[j] = cng[j+1]; //setลำดับตัวเลขใหม่
-            }
-            cnt_sym--;
-            cnt_num--;
-        }
-        else{
-            i++;
-        }
+
+    while (!optors.empty()) {
+        double b = oprans.top(); oprans.pop();
+        double a = oprans.top(); oprans.pop();
+        char op = optors.top(); optors.pop();
+        if (op == '+') oprans.push(a + b);
+        else if (op == '-') oprans.push(a - b);
+        else if (op == '*') oprans.push(a * b);
+        else if (op == '/') oprans.push(a / b);
     }
-    
-    double ans = cng[0];
-    for(int i = 0; i < cnt_sym; i++){
-        if(symbol[i] == '+'){
-            ans += cng[i+1];
-        }
-        else if(symbol[i] == '-'){
-            ans -= cng[i+1];
-        }
-    }
-    
-    cout << ans;
-    
+
+    return oprans.top();
+}
+
+int main() {
+    string equ;
+    cout << "Enter an expression: ";
+    getline(cin, equ);
+
+    double result = evaluateEqu(equ);
+    cout << "Result: " << result << endl;
+
     return 0;
 }

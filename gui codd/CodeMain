@@ -1,0 +1,2451 @@
+#pragma once
+#include <cmath>
+#include <thread>
+
+namespace Heuxksudthey {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+	using namespace System::Speech;
+
+	/// <summary>
+	/// Summary for MyForm
+	/// </summary>
+	public ref class MyForm : public System::Windows::Forms::Form
+	{
+	public:
+		MyForm(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~MyForm()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::Panel^ pnlLeftSize;
+	protected:
+
+	private: System::Windows::Forms::Panel^ pnlTopSize;
+	private: System::Windows::Forms::Button^ btncalculus;
+
+
+	private: System::Windows::Forms::Panel^ pnlOnButton;
+
+
+	private: System::Windows::Forms::Button^ btnmatrix;
+
+
+
+	private: System::Windows::Forms::Button^ btntrigonmetry;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ btnClear;
+
+	private: System::Windows::Forms::Button^ btnLog;
+	private: System::Windows::Forms::Button^ btnLogV;
+
+
+
+	private: System::Windows::Forms::Button^ btnLn;
+	private: System::Windows::Forms::Button^ btnPi;
+
+
+	private: System::Windows::Forms::Button^ btn7;
+	private: System::Windows::Forms::Button^ btn8;
+	private: System::Windows::Forms::Button^ btnDelete;
+
+
+
+	private: System::Windows::Forms::Button^ btn9;
+	private: System::Windows::Forms::Button^ btn6;
+
+
+	private: System::Windows::Forms::Button^ btnDevide;
+	private: System::Windows::Forms::Button^ btn5;
+
+
+	private: System::Windows::Forms::Button^ btn4;
+	private: System::Windows::Forms::Button^ btnI;
+	private: System::Windows::Forms::Button^ btnFactorial;
+
+
+
+	private: System::Windows::Forms::Button^ button16;
+	private: System::Windows::Forms::Button^ btnEV;
+	private: System::Windows::Forms::Button^ btnE;
+
+
+	private: System::Windows::Forms::Button^ btn3;
+
+	private: System::Windows::Forms::Button^ btnMultipled;
+	private: System::Windows::Forms::Button^ btn2;
+
+
+	private: System::Windows::Forms::Button^ btn1;
+	private: System::Windows::Forms::Button^ btnX;
+	private: System::Windows::Forms::Button^ btnFraction;
+
+
+
+
+
+	private: System::Windows::Forms::Button^ btnDiff;
+
+
+	private: System::Windows::Forms::Button^ btnPlus;
+
+	private: System::Windows::Forms::Button^ btnMinus;
+	private: System::Windows::Forms::Button^ btnDot;
+
+
+	private: System::Windows::Forms::Button^ btn0;
+	private: System::Windows::Forms::Button^ btnY;
+	private: System::Windows::Forms::Button^ btnPow;
+
+
+
+	private: System::Windows::Forms::Button^ button34;
+	private: System::Windows::Forms::Button^ btnDiffV;
+
+
+	private: System::Windows::Forms::Button^ btnLeft;
+
+	private: System::Windows::Forms::Button^ btnRight;
+	private: System::Windows::Forms::Button^ btnEquals;
+
+
+
+
+private: System::Windows::Forms::Button^ btnZ;
+private: System::Windows::Forms::Button^ btnRoot;
+private: System::Windows::Forms::Button^ btnRootV;
+private: System::Windows::Forms::Button^ btnPRight;
+private: System::Windows::Forms::Button^ btnPLife;
+
+
+
+
+
+
+
+private: System::Windows::Forms::Button^ b;
+private: System::Windows::Forms::Button^ btnout;
+private: System::Windows::Forms::Panel^ pnlcalculus;
+
+private: System::Windows::Forms::Panel^ pnltrigonmetry;
+
+private: System::Windows::Forms::Button^ btncos;
+private: System::Windows::Forms::Button^ btnsec;
+private: System::Windows::Forms::Button^ btnsin;
+private: System::Windows::Forms::Button^ btntanh;
+
+private: System::Windows::Forms::Button^ btntan;
+private: System::Windows::Forms::Button^ btncot;
+private: System::Windows::Forms::Button^ btncosh;
+
+private: System::Windows::Forms::Button^ btnsinh;
+
+private: System::Windows::Forms::Button^ btncsc;
+private: System::Windows::Forms::Panel^ pnlmatrix;
+private: System::Windows::Forms::Button^ btnmoveon;
+
+private: System::Windows::Forms::Button^ button9;
+private: System::Windows::Forms::Button^ btnmoveleft;
+
+private: System::Windows::Forms::Button^ button6;
+private: System::Windows::Forms::Button^ btnmoveright;
+
+private: System::Windows::Forms::Button^ button4;
+private: System::Windows::Forms::Button^ btntwotwo;
+private: System::Windows::Forms::Button^ btnfourfour;
+
+
+private: System::Windows::Forms::Button^ btnthreethree;
+
+private: System::Windows::Forms::Button^ button10;
+private: System::Windows::Forms::Button^ btnIntegrateV;
+private: System::Windows::Forms::Button^ btnIntegrate;
+public: System::Speech::Synthesis::SpeechSynthesizer^ spi; //spi คือชื่อตัวแปร
+private: System::Windows::Forms::Button^ btnmovedown;
+private: System::Windows::Forms::Button^ button8;
+private: System::Windows::Forms::Panel^ pnlOntextBox1;
+private: System::Windows::Forms::Panel^ pnlOntextmatrix;
+
+
+
+private: System::Windows::Forms::TextBox^ R4C4;
+
+private: System::Windows::Forms::TextBox^ R4C3;
+
+private: System::Windows::Forms::TextBox^ R4C2;
+
+private: System::Windows::Forms::TextBox^ R4C1;
+
+private: System::Windows::Forms::TextBox^ R3C4;
+
+private: System::Windows::Forms::TextBox^ R3C3;
+
+private: System::Windows::Forms::TextBox^ R3C2;
+
+private: System::Windows::Forms::TextBox^ R2C4;
+private: System::Windows::Forms::TextBox^ R3C1;
+
+
+private: System::Windows::Forms::TextBox^ R2C3;
+
+private: System::Windows::Forms::TextBox^ R2C2;
+
+private: System::Windows::Forms::TextBox^ R1C4;
+private: System::Windows::Forms::TextBox^ R2C1;
+
+
+private: System::Windows::Forms::TextBox^ R1C3;
+
+private: System::Windows::Forms::TextBox^ R1C2;
+
+private: System::Windows::Forms::TextBox^ R1C1;
+private: System::Windows::Forms::TextBox^ btnMatrixAnswer;
+private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+private: System::Windows::Forms::Label^ label1;
+private: System::ComponentModel::IContainer^ components;
+
+
+public:
+
+public:
+
+public:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	protected:
+
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			this->pnlLeftSize = (gcnew System::Windows::Forms::Panel());
+			this->pnlOnButton = (gcnew System::Windows::Forms::Panel());
+			this->btnout = (gcnew System::Windows::Forms::Button());
+			this->btnmatrix = (gcnew System::Windows::Forms::Button());
+			this->btntrigonmetry = (gcnew System::Windows::Forms::Button());
+			this->btncalculus = (gcnew System::Windows::Forms::Button());
+			this->pnlTopSize = (gcnew System::Windows::Forms::Panel());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->btnLog = (gcnew System::Windows::Forms::Button());
+			this->btnLogV = (gcnew System::Windows::Forms::Button());
+			this->btnLn = (gcnew System::Windows::Forms::Button());
+			this->btnPi = (gcnew System::Windows::Forms::Button());
+			this->btn7 = (gcnew System::Windows::Forms::Button());
+			this->btn8 = (gcnew System::Windows::Forms::Button());
+			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			this->btn9 = (gcnew System::Windows::Forms::Button());
+			this->btn6 = (gcnew System::Windows::Forms::Button());
+			this->btnDevide = (gcnew System::Windows::Forms::Button());
+			this->btn5 = (gcnew System::Windows::Forms::Button());
+			this->btn4 = (gcnew System::Windows::Forms::Button());
+			this->btnI = (gcnew System::Windows::Forms::Button());
+			this->btnFactorial = (gcnew System::Windows::Forms::Button());
+			this->button16 = (gcnew System::Windows::Forms::Button());
+			this->btnEV = (gcnew System::Windows::Forms::Button());
+			this->btnE = (gcnew System::Windows::Forms::Button());
+			this->btn3 = (gcnew System::Windows::Forms::Button());
+			this->btnMultipled = (gcnew System::Windows::Forms::Button());
+			this->btn2 = (gcnew System::Windows::Forms::Button());
+			this->btn1 = (gcnew System::Windows::Forms::Button());
+			this->btnX = (gcnew System::Windows::Forms::Button());
+			this->btnFraction = (gcnew System::Windows::Forms::Button());
+			this->btnDiff = (gcnew System::Windows::Forms::Button());
+			this->btnPlus = (gcnew System::Windows::Forms::Button());
+			this->btnMinus = (gcnew System::Windows::Forms::Button());
+			this->btnDot = (gcnew System::Windows::Forms::Button());
+			this->btn0 = (gcnew System::Windows::Forms::Button());
+			this->btnY = (gcnew System::Windows::Forms::Button());
+			this->btnPow = (gcnew System::Windows::Forms::Button());
+			this->button34 = (gcnew System::Windows::Forms::Button());
+			this->btnDiffV = (gcnew System::Windows::Forms::Button());
+			this->btnLeft = (gcnew System::Windows::Forms::Button());
+			this->btnRight = (gcnew System::Windows::Forms::Button());
+			this->btnEquals = (gcnew System::Windows::Forms::Button());
+			this->btnZ = (gcnew System::Windows::Forms::Button());
+			this->btnRoot = (gcnew System::Windows::Forms::Button());
+			this->btnRootV = (gcnew System::Windows::Forms::Button());
+			this->btnPRight = (gcnew System::Windows::Forms::Button());
+			this->btnPLife = (gcnew System::Windows::Forms::Button());
+			this->b = (gcnew System::Windows::Forms::Button());
+			this->pnlcalculus = (gcnew System::Windows::Forms::Panel());
+			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->btnIntegrateV = (gcnew System::Windows::Forms::Button());
+			this->btnIntegrate = (gcnew System::Windows::Forms::Button());
+			this->pnltrigonmetry = (gcnew System::Windows::Forms::Panel());
+			this->btncos = (gcnew System::Windows::Forms::Button());
+			this->btnsec = (gcnew System::Windows::Forms::Button());
+			this->btnsin = (gcnew System::Windows::Forms::Button());
+			this->btntanh = (gcnew System::Windows::Forms::Button());
+			this->btntan = (gcnew System::Windows::Forms::Button());
+			this->btncot = (gcnew System::Windows::Forms::Button());
+			this->btncosh = (gcnew System::Windows::Forms::Button());
+			this->btnsinh = (gcnew System::Windows::Forms::Button());
+			this->btncsc = (gcnew System::Windows::Forms::Button());
+			this->pnlmatrix = (gcnew System::Windows::Forms::Panel());
+			this->btnmoveon = (gcnew System::Windows::Forms::Button());
+			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->btnmoveleft = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->btnmoveright = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->btntwotwo = (gcnew System::Windows::Forms::Button());
+			this->btnfourfour = (gcnew System::Windows::Forms::Button());
+			this->btnthreethree = (gcnew System::Windows::Forms::Button());
+			this->btnmovedown = (gcnew System::Windows::Forms::Button());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->pnlOntextBox1 = (gcnew System::Windows::Forms::Panel());
+			this->pnlOntextmatrix = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->btnMatrixAnswer = (gcnew System::Windows::Forms::TextBox());
+			this->R4C4 = (gcnew System::Windows::Forms::TextBox());
+			this->R4C3 = (gcnew System::Windows::Forms::TextBox());
+			this->R4C2 = (gcnew System::Windows::Forms::TextBox());
+			this->R4C1 = (gcnew System::Windows::Forms::TextBox());
+			this->R3C4 = (gcnew System::Windows::Forms::TextBox());
+			this->R3C3 = (gcnew System::Windows::Forms::TextBox());
+			this->R3C2 = (gcnew System::Windows::Forms::TextBox());
+			this->R2C4 = (gcnew System::Windows::Forms::TextBox());
+			this->R3C1 = (gcnew System::Windows::Forms::TextBox());
+			this->R2C3 = (gcnew System::Windows::Forms::TextBox());
+			this->R2C2 = (gcnew System::Windows::Forms::TextBox());
+			this->R1C4 = (gcnew System::Windows::Forms::TextBox());
+			this->R2C1 = (gcnew System::Windows::Forms::TextBox());
+			this->R1C3 = (gcnew System::Windows::Forms::TextBox());
+			this->R1C2 = (gcnew System::Windows::Forms::TextBox());
+			this->R1C1 = (gcnew System::Windows::Forms::TextBox());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->pnlLeftSize->SuspendLayout();
+			this->pnlcalculus->SuspendLayout();
+			this->pnltrigonmetry->SuspendLayout();
+			this->pnlmatrix->SuspendLayout();
+			this->pnlOntextBox1->SuspendLayout();
+			this->pnlOntextmatrix->SuspendLayout();
+			this->SuspendLayout();
+			// 
+			// pnlLeftSize
+			// 
+			this->pnlLeftSize->BackColor = System::Drawing::Color::Red;
+			this->pnlLeftSize->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pnlLeftSize.BackgroundImage")));
+			this->pnlLeftSize->Controls->Add(this->pnlOnButton);
+			this->pnlLeftSize->Controls->Add(this->btnout);
+			this->pnlLeftSize->Controls->Add(this->btnmatrix);
+			this->pnlLeftSize->Controls->Add(this->btntrigonmetry);
+			this->pnlLeftSize->Controls->Add(this->btncalculus);
+			this->pnlLeftSize->Dock = System::Windows::Forms::DockStyle::Left;
+			this->pnlLeftSize->Location = System::Drawing::Point(0, 0);
+			this->pnlLeftSize->Name = L"pnlLeftSize";
+			this->pnlLeftSize->Size = System::Drawing::Size(254, 666);
+			this->pnlLeftSize->TabIndex = 0;
+			// 
+			// pnlOnButton
+			// 
+			this->pnlOnButton->BackColor = System::Drawing::Color::White;
+			this->pnlOnButton->Location = System::Drawing::Point(0, 183);
+			this->pnlOnButton->Name = L"pnlOnButton";
+			this->pnlOnButton->Size = System::Drawing::Size(15, 60);
+			this->pnlOnButton->TabIndex = 2;
+			// 
+			// btnout
+			// 
+			this->btnout->BackColor = System::Drawing::Color::Red;
+			this->btnout->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnout.BackgroundImage")));
+			this->btnout->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnout->FlatAppearance->BorderSize = 0;
+			this->btnout->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnout->Location = System::Drawing::Point(3, 3);
+			this->btnout->Name = L"btnout";
+			this->btnout->Size = System::Drawing::Size(30, 30);
+			this->btnout->TabIndex = 48;
+			this->btnout->UseVisualStyleBackColor = false;
+			this->btnout->Click += gcnew System::EventHandler(this, &MyForm::btnout_Click);
+			// 
+			// btnmatrix
+			// 
+			this->btnmatrix->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnmatrix.BackgroundImage")));
+			this->btnmatrix->FlatAppearance->BorderSize = 0;
+			this->btnmatrix->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnmatrix->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnmatrix->ForeColor = System::Drawing::Color::White;
+			this->btnmatrix->Location = System::Drawing::Point(0, 376);
+			this->btnmatrix->Name = L"btnmatrix";
+			this->btnmatrix->Size = System::Drawing::Size(254, 60);
+			this->btnmatrix->TabIndex = 6;
+			this->btnmatrix->Text = L"Matrix";
+			this->btnmatrix->UseVisualStyleBackColor = true;
+			this->btnmatrix->Click += gcnew System::EventHandler(this, &MyForm::btnmatrix_Click);
+			// 
+			// btntrigonmetry
+			// 
+			this->btntrigonmetry->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btntrigonmetry.BackgroundImage")));
+			this->btntrigonmetry->FlatAppearance->BorderSize = 0;
+			this->btntrigonmetry->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btntrigonmetry->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btntrigonmetry->ForeColor = System::Drawing::Color::White;
+			this->btntrigonmetry->Location = System::Drawing::Point(0, 281);
+			this->btntrigonmetry->Name = L"btntrigonmetry";
+			this->btntrigonmetry->Size = System::Drawing::Size(254, 60);
+			this->btntrigonmetry->TabIndex = 4;
+			this->btntrigonmetry->Text = L"Trigonometry";
+			this->btntrigonmetry->UseVisualStyleBackColor = true;
+			this->btntrigonmetry->Click += gcnew System::EventHandler(this, &MyForm::btntrigonmetry_Click);
+			// 
+			// btncalculus
+			// 
+			this->btncalculus->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btncalculus.BackgroundImage")));
+			this->btncalculus->FlatAppearance->BorderSize = 0;
+			this->btncalculus->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btncalculus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btncalculus->ForeColor = System::Drawing::Color::White;
+			this->btncalculus->Location = System::Drawing::Point(0, 183);
+			this->btncalculus->Name = L"btncalculus";
+			this->btncalculus->Size = System::Drawing::Size(254, 60);
+			this->btncalculus->TabIndex = 2;
+			this->btncalculus->Text = L"Calculus";
+			this->btncalculus->UseVisualStyleBackColor = true;
+			this->btncalculus->Click += gcnew System::EventHandler(this, &MyForm::btncalcules_Click);
+			// 
+			// pnlTopSize
+			// 
+			this->pnlTopSize->BackColor = System::Drawing::Color::LightGray;
+			this->pnlTopSize->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pnlTopSize.BackgroundImage")));
+			this->pnlTopSize->Dock = System::Windows::Forms::DockStyle::Top;
+			this->pnlTopSize->Location = System::Drawing::Point(254, 0);
+			this->pnlTopSize->Name = L"pnlTopSize";
+			this->pnlTopSize->Size = System::Drawing::Size(926, 56);
+			this->pnlTopSize->TabIndex = 1;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->textBox1->Location = System::Drawing::Point(7, 7);
+			this->textBox1->Multiline = true;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(867, 156);
+			this->textBox1->TabIndex = 2;
+			this->textBox1->Text = L"0";
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			// 
+			// btnClear
+			// 
+			this->btnClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnClear->Location = System::Drawing::Point(284, 263);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(91, 70);
+			this->btnClear->TabIndex = 3;
+			this->btnClear->Text = L"AC";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &MyForm::btnClear_Click);
+			// 
+			// btnLog
+			// 
+			this->btnLog->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnLog.BackgroundImage")));
+			this->btnLog->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnLog->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnLog->Location = System::Drawing::Point(381, 263);
+			this->btnLog->Name = L"btnLog";
+			this->btnLog->Size = System::Drawing::Size(91, 70);
+			this->btnLog->TabIndex = 4;
+			this->btnLog->UseVisualStyleBackColor = true;
+			this->btnLog->Click += gcnew System::EventHandler(this, &MyForm::btnLog_Click);
+			// 
+			// btnLogV
+			// 
+			this->btnLogV->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnLogV.BackgroundImage")));
+			this->btnLogV->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnLogV->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnLogV->Location = System::Drawing::Point(478, 263);
+			this->btnLogV->Name = L"btnLogV";
+			this->btnLogV->Size = System::Drawing::Size(91, 70);
+			this->btnLogV->TabIndex = 5;
+			this->btnLogV->UseVisualStyleBackColor = true;
+			this->btnLogV->Click += gcnew System::EventHandler(this, &MyForm::btnLogV_Click);
+			// 
+			// btnLn
+			// 
+			this->btnLn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnLn->Location = System::Drawing::Point(575, 263);
+			this->btnLn->Name = L"btnLn";
+			this->btnLn->Size = System::Drawing::Size(91, 70);
+			this->btnLn->TabIndex = 6;
+			this->btnLn->Text = L"ln";
+			this->btnLn->UseVisualStyleBackColor = true;
+			this->btnLn->Click += gcnew System::EventHandler(this, &MyForm::btnLn_Click);
+			// 
+			// btnPi
+			// 
+			this->btnPi->Font = (gcnew System::Drawing::Font(L"Centaur", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnPi->Location = System::Drawing::Point(672, 263);
+			this->btnPi->Name = L"btnPi";
+			this->btnPi->Size = System::Drawing::Size(91, 70);
+			this->btnPi->TabIndex = 7;
+			this->btnPi->Text = L"π";
+			this->btnPi->UseVisualStyleBackColor = true;
+			this->btnPi->Click += gcnew System::EventHandler(this, &MyForm::btnPi_Click);
+			// 
+			// btn7
+			// 
+			this->btn7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn7->Location = System::Drawing::Point(769, 263);
+			this->btn7->Name = L"btn7";
+			this->btn7->Size = System::Drawing::Size(91, 70);
+			this->btn7->TabIndex = 8;
+			this->btn7->Text = L"7";
+			this->btn7->UseVisualStyleBackColor = true;
+			this->btn7->Click += gcnew System::EventHandler(this, &MyForm::btn7_Click);
+			// 
+			// btn8
+			// 
+			this->btn8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn8->Location = System::Drawing::Point(866, 263);
+			this->btn8->Name = L"btn8";
+			this->btn8->Size = System::Drawing::Size(91, 70);
+			this->btn8->TabIndex = 9;
+			this->btn8->Text = L"8";
+			this->btn8->UseVisualStyleBackColor = true;
+			this->btn8->Click += gcnew System::EventHandler(this, &MyForm::btn8_Click);
+			// 
+			// btnDelete
+			// 
+			this->btnDelete->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnDelete->Location = System::Drawing::Point(1060, 263);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(91, 70);
+			this->btnDelete->TabIndex = 9;
+			this->btnDelete->Text = L"DEL";
+			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &MyForm::btnDelete_Click);
+			// 
+			// btn9
+			// 
+			this->btn9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn9->Location = System::Drawing::Point(963, 263);
+			this->btn9->Name = L"btn9";
+			this->btn9->Size = System::Drawing::Size(91, 70);
+			this->btn9->TabIndex = 9;
+			this->btn9->Text = L"9";
+			this->btn9->UseVisualStyleBackColor = true;
+			this->btn9->Click += gcnew System::EventHandler(this, &MyForm::btn9_Click);
+			// 
+			// btn6
+			// 
+			this->btn6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn6->Location = System::Drawing::Point(963, 339);
+			this->btn6->Name = L"btn6";
+			this->btn6->Size = System::Drawing::Size(91, 70);
+			this->btn6->TabIndex = 16;
+			this->btn6->Text = L"6";
+			this->btn6->UseVisualStyleBackColor = true;
+			this->btn6->Click += gcnew System::EventHandler(this, &MyForm::btn6_Click);
+			// 
+			// btnDevide
+			// 
+			this->btnDevide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnDevide->Location = System::Drawing::Point(1060, 339);
+			this->btnDevide->Name = L"btnDevide";
+			this->btnDevide->Size = System::Drawing::Size(91, 70);
+			this->btnDevide->TabIndex = 17;
+			this->btnDevide->Text = L"÷";
+			this->btnDevide->UseVisualStyleBackColor = true;
+			this->btnDevide->Click += gcnew System::EventHandler(this, &MyForm::btnDevide_Click);
+			// 
+			// btn5
+			// 
+			this->btn5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn5->Location = System::Drawing::Point(866, 339);
+			this->btn5->Name = L"btn5";
+			this->btn5->Size = System::Drawing::Size(91, 70);
+			this->btn5->TabIndex = 18;
+			this->btn5->Text = L"5";
+			this->btn5->UseVisualStyleBackColor = true;
+			this->btn5->Click += gcnew System::EventHandler(this, &MyForm::btn5_Click);
+			// 
+			// btn4
+			// 
+			this->btn4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn4->Location = System::Drawing::Point(769, 339);
+			this->btn4->Name = L"btn4";
+			this->btn4->Size = System::Drawing::Size(91, 70);
+			this->btn4->TabIndex = 15;
+			this->btn4->Text = L"4";
+			this->btn4->UseVisualStyleBackColor = true;
+			this->btn4->Click += gcnew System::EventHandler(this, &MyForm::btn4_Click);
+			// 
+			// btnI
+			// 
+			this->btnI->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnI->Location = System::Drawing::Point(672, 339);
+			this->btnI->Name = L"btnI";
+			this->btnI->Size = System::Drawing::Size(91, 70);
+			this->btnI->TabIndex = 14;
+			this->btnI->Text = L"i";
+			this->btnI->UseVisualStyleBackColor = true;
+			// 
+			// btnFactorial
+			// 
+			this->btnFactorial->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFactorial.BackgroundImage")));
+			this->btnFactorial->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnFactorial->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnFactorial->Location = System::Drawing::Point(575, 339);
+			this->btnFactorial->Name = L"btnFactorial";
+			this->btnFactorial->Size = System::Drawing::Size(91, 70);
+			this->btnFactorial->TabIndex = 13;
+			this->btnFactorial->UseVisualStyleBackColor = true;
+			this->btnFactorial->Click += gcnew System::EventHandler(this, &MyForm::btnFactorial_Click);
+			// 
+			// button16
+			// 
+			this->button16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button16->Location = System::Drawing::Point(478, 567);
+			this->button16->Name = L"button16";
+			this->button16->Size = System::Drawing::Size(91, 70);
+			this->button16->TabIndex = 12;
+			this->button16->UseVisualStyleBackColor = true;
+			// 
+			// btnEV
+			// 
+			this->btnEV->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnEV.BackgroundImage")));
+			this->btnEV->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnEV->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnEV->Location = System::Drawing::Point(221, 5);
+			this->btnEV->Name = L"btnEV";
+			this->btnEV->Size = System::Drawing::Size(91, 70);
+			this->btnEV->TabIndex = 11;
+			this->btnEV->UseVisualStyleBackColor = true;
+			this->btnEV->Click += gcnew System::EventHandler(this, &MyForm::btnEV_Click);
+			// 
+			// btnE
+			// 
+			this->btnE->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnE.BackgroundImage")));
+			this->btnE->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnE->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnE->Location = System::Drawing::Point(124, 5);
+			this->btnE->Name = L"btnE";
+			this->btnE->Size = System::Drawing::Size(91, 70);
+			this->btnE->TabIndex = 10;
+			this->btnE->UseVisualStyleBackColor = true;
+			this->btnE->Click += gcnew System::EventHandler(this, &MyForm::btnE_Click);
+			// 
+			// btn3
+			// 
+			this->btn3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn3->Location = System::Drawing::Point(963, 415);
+			this->btn3->Name = L"btn3";
+			this->btn3->Size = System::Drawing::Size(91, 70);
+			this->btn3->TabIndex = 25;
+			this->btn3->Text = L"3";
+			this->btn3->UseVisualStyleBackColor = true;
+			this->btn3->Click += gcnew System::EventHandler(this, &MyForm::btn3_Click);
+			// 
+			// btnMultipled
+			// 
+			this->btnMultipled->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnMultipled->Location = System::Drawing::Point(1060, 415);
+			this->btnMultipled->Name = L"btnMultipled";
+			this->btnMultipled->Size = System::Drawing::Size(91, 70);
+			this->btnMultipled->TabIndex = 26;
+			this->btnMultipled->Text = L"×";
+			this->btnMultipled->UseVisualStyleBackColor = true;
+			this->btnMultipled->Click += gcnew System::EventHandler(this, &MyForm::btnMultipled_Click);
+			// 
+			// btn2
+			// 
+			this->btn2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn2->Location = System::Drawing::Point(866, 415);
+			this->btn2->Name = L"btn2";
+			this->btn2->Size = System::Drawing::Size(91, 70);
+			this->btn2->TabIndex = 27;
+			this->btn2->Text = L"2";
+			this->btn2->UseVisualStyleBackColor = true;
+			this->btn2->Click += gcnew System::EventHandler(this, &MyForm::btn2_Click);
+			// 
+			// btn1
+			// 
+			this->btn1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn1->Location = System::Drawing::Point(769, 415);
+			this->btn1->Name = L"btn1";
+			this->btn1->Size = System::Drawing::Size(91, 70);
+			this->btn1->TabIndex = 24;
+			this->btn1->Text = L"1";
+			this->btn1->UseVisualStyleBackColor = true;
+			this->btn1->Click += gcnew System::EventHandler(this, &MyForm::btn1_Click);
+			// 
+			// btnX
+			// 
+			this->btnX->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnX->Location = System::Drawing::Point(672, 415);
+			this->btnX->Name = L"btnX";
+			this->btnX->Size = System::Drawing::Size(91, 70);
+			this->btnX->TabIndex = 23;
+			this->btnX->Text = L"x";
+			this->btnX->UseVisualStyleBackColor = true;
+			// 
+			// btnFraction
+			// 
+			this->btnFraction->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFraction.BackgroundImage")));
+			this->btnFraction->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnFraction->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnFraction->Location = System::Drawing::Point(575, 415);
+			this->btnFraction->Name = L"btnFraction";
+			this->btnFraction->Size = System::Drawing::Size(91, 70);
+			this->btnFraction->TabIndex = 22;
+			this->btnFraction->UseVisualStyleBackColor = true;
+			this->btnFraction->Click += gcnew System::EventHandler(this, &MyForm::btnFraction_Click);
+			// 
+			// btnDiff
+			// 
+			this->btnDiff->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnDiff.BackgroundImage")));
+			this->btnDiff->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnDiff->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnDiff->Location = System::Drawing::Point(221, 81);
+			this->btnDiff->Name = L"btnDiff";
+			this->btnDiff->Size = System::Drawing::Size(91, 70);
+			this->btnDiff->TabIndex = 20;
+			this->btnDiff->UseVisualStyleBackColor = true;
+			// 
+			// btnPlus
+			// 
+			this->btnPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnPlus->Location = System::Drawing::Point(963, 491);
+			this->btnPlus->Name = L"btnPlus";
+			this->btnPlus->Size = System::Drawing::Size(91, 70);
+			this->btnPlus->TabIndex = 34;
+			this->btnPlus->Text = L"+";
+			this->btnPlus->UseVisualStyleBackColor = true;
+			this->btnPlus->Click += gcnew System::EventHandler(this, &MyForm::btnPlus_Click);
+			// 
+			// btnMinus
+			// 
+			this->btnMinus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnMinus->Location = System::Drawing::Point(1060, 491);
+			this->btnMinus->Name = L"btnMinus";
+			this->btnMinus->Size = System::Drawing::Size(91, 70);
+			this->btnMinus->TabIndex = 35;
+			this->btnMinus->Text = L"-";
+			this->btnMinus->UseVisualStyleBackColor = true;
+			this->btnMinus->Click += gcnew System::EventHandler(this, &MyForm::btnMinus_Click);
+			// 
+			// btnDot
+			// 
+			this->btnDot->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnDot->Location = System::Drawing::Point(866, 491);
+			this->btnDot->Name = L"btnDot";
+			this->btnDot->Size = System::Drawing::Size(91, 70);
+			this->btnDot->TabIndex = 36;
+			this->btnDot->Text = L".";
+			this->btnDot->UseVisualStyleBackColor = true;
+			this->btnDot->Click += gcnew System::EventHandler(this, &MyForm::btnDot_Click);
+			// 
+			// btn0
+			// 
+			this->btn0->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btn0->Location = System::Drawing::Point(769, 491);
+			this->btn0->Name = L"btn0";
+			this->btn0->Size = System::Drawing::Size(91, 70);
+			this->btn0->TabIndex = 33;
+			this->btn0->Text = L"0";
+			this->btn0->UseVisualStyleBackColor = true;
+			this->btn0->Click += gcnew System::EventHandler(this, &MyForm::btn0_Click);
+			// 
+			// btnY
+			// 
+			this->btnY->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnY->Location = System::Drawing::Point(672, 491);
+			this->btnY->Name = L"btnY";
+			this->btnY->Size = System::Drawing::Size(91, 70);
+			this->btnY->TabIndex = 32;
+			this->btnY->Text = L"y";
+			this->btnY->UseVisualStyleBackColor = true;
+			// 
+			// btnPow
+			// 
+			this->btnPow->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnPow.BackgroundImage")));
+			this->btnPow->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnPow->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnPow->Location = System::Drawing::Point(575, 491);
+			this->btnPow->Name = L"btnPow";
+			this->btnPow->Size = System::Drawing::Size(91, 70);
+			this->btnPow->TabIndex = 31;
+			this->btnPow->UseVisualStyleBackColor = true;
+			this->btnPow->Click += gcnew System::EventHandler(this, &MyForm::btnPow_Click);
+			// 
+			// button34
+			// 
+			this->button34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button34->Location = System::Drawing::Point(27, 5);
+			this->button34->Name = L"button34";
+			this->button34->Size = System::Drawing::Size(91, 70);
+			this->button34->TabIndex = 30;
+			this->button34->UseVisualStyleBackColor = true;
+			// 
+			// btnDiffV
+			// 
+			this->btnDiffV->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnDiffV.BackgroundImage")));
+			this->btnDiffV->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnDiffV->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnDiffV->Location = System::Drawing::Point(221, 157);
+			this->btnDiffV->Name = L"btnDiffV";
+			this->btnDiffV->Size = System::Drawing::Size(91, 70);
+			this->btnDiffV->TabIndex = 29;
+			this->btnDiffV->UseVisualStyleBackColor = true;
+			// 
+			// btnLeft
+			// 
+			this->btnLeft->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnLeft->Location = System::Drawing::Point(963, 567);
+			this->btnLeft->Name = L"btnLeft";
+			this->btnLeft->Size = System::Drawing::Size(91, 70);
+			this->btnLeft->TabIndex = 43;
+			this->btnLeft->Text = L"(";
+			this->btnLeft->UseVisualStyleBackColor = true;
+			this->btnLeft->Click += gcnew System::EventHandler(this, &MyForm::btnLeft_Click);
+			// 
+			// btnRight
+			// 
+			this->btnRight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnRight->Location = System::Drawing::Point(1060, 567);
+			this->btnRight->Name = L"btnRight";
+			this->btnRight->Size = System::Drawing::Size(91, 70);
+			this->btnRight->TabIndex = 44;
+			this->btnRight->Text = L")";
+			this->btnRight->UseVisualStyleBackColor = true;
+			this->btnRight->Click += gcnew System::EventHandler(this, &MyForm::btnRight_Click);
+			// 
+			// btnEquals
+			// 
+			this->btnEquals->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnEquals->Location = System::Drawing::Point(866, 567);
+			this->btnEquals->Name = L"btnEquals";
+			this->btnEquals->Size = System::Drawing::Size(91, 70);
+			this->btnEquals->TabIndex = 45;
+			this->btnEquals->Text = L"=";
+			this->btnEquals->UseVisualStyleBackColor = true;
+			this->btnEquals->Click += gcnew System::EventHandler(this, &MyForm::btnEquals_Click);
+			// 
+			// btnZ
+			// 
+			this->btnZ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnZ->Location = System::Drawing::Point(769, 567);
+			this->btnZ->Name = L"btnZ";
+			this->btnZ->Size = System::Drawing::Size(91, 70);
+			this->btnZ->TabIndex = 41;
+			this->btnZ->Text = L"z";
+			this->btnZ->UseVisualStyleBackColor = true;
+			// 
+			// btnRoot
+			// 
+			this->btnRoot->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRoot.BackgroundImage")));
+			this->btnRoot->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnRoot->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnRoot->Location = System::Drawing::Point(672, 567);
+			this->btnRoot->Name = L"btnRoot";
+			this->btnRoot->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->btnRoot->Size = System::Drawing::Size(91, 70);
+			this->btnRoot->TabIndex = 40;
+			this->btnRoot->UseVisualStyleBackColor = true;
+			this->btnRoot->Click += gcnew System::EventHandler(this, &MyForm::btnRoot_Click);
+			// 
+			// btnRootV
+			// 
+			this->btnRootV->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRootV.BackgroundImage")));
+			this->btnRootV->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnRootV->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnRootV->Location = System::Drawing::Point(575, 567);
+			this->btnRootV->Name = L"btnRootV";
+			this->btnRootV->Size = System::Drawing::Size(91, 70);
+			this->btnRootV->TabIndex = 39;
+			this->btnRootV->UseVisualStyleBackColor = true;
+			this->btnRootV->Click += gcnew System::EventHandler(this, &MyForm::btnRootV_Click);
+			// 
+			// btnPRight
+			// 
+			this->btnPRight->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnPRight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnPRight->Location = System::Drawing::Point(381, 567);
+			this->btnPRight->Name = L"btnPRight";
+			this->btnPRight->Size = System::Drawing::Size(91, 70);
+			this->btnPRight->TabIndex = 38;
+			this->btnPRight->Text = L"→";
+			this->btnPRight->UseVisualStyleBackColor = true;
+			this->btnPRight->Click += gcnew System::EventHandler(this, &MyForm::btnPRight_Click);
+			// 
+			// btnPLife
+			// 
+			this->btnPLife->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnPLife->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnPLife->Location = System::Drawing::Point(284, 567);
+			this->btnPLife->Name = L"btnPLife";
+			this->btnPLife->Size = System::Drawing::Size(91, 70);
+			this->btnPLife->TabIndex = 37;
+			this->btnPLife->Text = L"←";
+			this->btnPLife->UseVisualStyleBackColor = true;
+			this->btnPLife->Click += gcnew System::EventHandler(this, &MyForm::BtnPLife_Click);
+			// 
+			// b
+			// 
+			this->b->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->b->Location = System::Drawing::Point(27, 81);
+			this->b->Name = L"b";
+			this->b->Size = System::Drawing::Size(91, 70);
+			this->b->TabIndex = 47;
+			this->b->UseVisualStyleBackColor = true;
+			// 
+			// pnlcalculus
+			// 
+			this->pnlcalculus->Controls->Add(this->button10);
+			this->pnlcalculus->Controls->Add(this->b);
+			this->pnlcalculus->Controls->Add(this->button34);
+			this->pnlcalculus->Controls->Add(this->btnDiffV);
+			this->pnlcalculus->Controls->Add(this->btnDiff);
+			this->pnlcalculus->Controls->Add(this->btnEV);
+			this->pnlcalculus->Controls->Add(this->btnIntegrateV);
+			this->pnlcalculus->Controls->Add(this->btnIntegrate);
+			this->pnlcalculus->Controls->Add(this->btnE);
+			this->pnlcalculus->Location = System::Drawing::Point(257, 334);
+			this->pnlcalculus->Name = L"pnlcalculus";
+			this->pnlcalculus->Size = System::Drawing::Size(318, 236);
+			this->pnlcalculus->TabIndex = 48;
+			// 
+			// button10
+			// 
+			this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button10->Location = System::Drawing::Point(27, 157);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(91, 70);
+			this->button10->TabIndex = 47;
+			this->button10->UseVisualStyleBackColor = true;
+			// 
+			// btnIntegrateV
+			// 
+			this->btnIntegrateV->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnIntegrateV.BackgroundImage")));
+			this->btnIntegrateV->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnIntegrateV->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnIntegrateV->Location = System::Drawing::Point(124, 157);
+			this->btnIntegrateV->Name = L"btnIntegrateV";
+			this->btnIntegrateV->Size = System::Drawing::Size(91, 70);
+			this->btnIntegrateV->TabIndex = 10;
+			this->btnIntegrateV->UseVisualStyleBackColor = true;
+			// 
+			// btnIntegrate
+			// 
+			this->btnIntegrate->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnIntegrate.BackgroundImage")));
+			this->btnIntegrate->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnIntegrate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnIntegrate->Location = System::Drawing::Point(124, 81);
+			this->btnIntegrate->Name = L"btnIntegrate";
+			this->btnIntegrate->Size = System::Drawing::Size(91, 70);
+			this->btnIntegrate->TabIndex = 10;
+			this->btnIntegrate->UseVisualStyleBackColor = true;
+			// 
+			// pnltrigonmetry
+			// 
+			this->pnltrigonmetry->Controls->Add(this->btncos);
+			this->pnltrigonmetry->Controls->Add(this->btnsec);
+			this->pnltrigonmetry->Controls->Add(this->btnsin);
+			this->pnltrigonmetry->Controls->Add(this->btntanh);
+			this->pnltrigonmetry->Controls->Add(this->btntan);
+			this->pnltrigonmetry->Controls->Add(this->btncot);
+			this->pnltrigonmetry->Controls->Add(this->btncosh);
+			this->pnltrigonmetry->Controls->Add(this->btnsinh);
+			this->pnltrigonmetry->Controls->Add(this->btncsc);
+			this->pnltrigonmetry->Location = System::Drawing::Point(273, 334);
+			this->pnltrigonmetry->Name = L"pnltrigonmetry";
+			this->pnltrigonmetry->Size = System::Drawing::Size(302, 233);
+			this->pnltrigonmetry->TabIndex = 49;
+			// 
+			// btncos
+			// 
+			this->btncos->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btncos->Location = System::Drawing::Point(11, 81);
+			this->btncos->Name = L"btncos";
+			this->btncos->Size = System::Drawing::Size(91, 70);
+			this->btncos->TabIndex = 47;
+			this->btncos->Text = L"cos";
+			this->btncos->UseVisualStyleBackColor = true;
+			this->btncos->Click += gcnew System::EventHandler(this, &MyForm::btncos_Click);
+			// 
+			// btnsec
+			// 
+			this->btnsec->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnsec->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnsec->Location = System::Drawing::Point(108, 81);
+			this->btnsec->Name = L"btnsec";
+			this->btnsec->Size = System::Drawing::Size(91, 70);
+			this->btnsec->TabIndex = 42;
+			this->btnsec->Text = L"sec";
+			this->btnsec->UseVisualStyleBackColor = true;
+			this->btnsec->Click += gcnew System::EventHandler(this, &MyForm::btnsec_Click);
+			// 
+			// btnsin
+			// 
+			this->btnsin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnsin->Location = System::Drawing::Point(11, 5);
+			this->btnsin->Name = L"btnsin";
+			this->btnsin->Size = System::Drawing::Size(91, 70);
+			this->btnsin->TabIndex = 30;
+			this->btnsin->Text = L"sin";
+			this->btnsin->UseVisualStyleBackColor = true;
+			this->btnsin->Click += gcnew System::EventHandler(this, &MyForm::btnsin_Click);
+			// 
+			// btntanh
+			// 
+			this->btntanh->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btntanh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btntanh->Location = System::Drawing::Point(205, 157);
+			this->btntanh->Name = L"btntanh";
+			this->btntanh->Size = System::Drawing::Size(91, 70);
+			this->btntanh->TabIndex = 29;
+			this->btntanh->Text = L"tanh";
+			this->btntanh->UseVisualStyleBackColor = true;
+			this->btntanh->Click += gcnew System::EventHandler(this, &MyForm::btntanh_Click);
+			// 
+			// btntan
+			// 
+			this->btntan->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btntan->Location = System::Drawing::Point(11, 157);
+			this->btntan->Name = L"btntan";
+			this->btntan->Size = System::Drawing::Size(91, 70);
+			this->btntan->TabIndex = 28;
+			this->btntan->Text = L"tan";
+			this->btntan->UseVisualStyleBackColor = true;
+			this->btntan->Click += gcnew System::EventHandler(this, &MyForm::btntan_Click);
+			// 
+			// btncot
+			// 
+			this->btncot->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btncot->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btncot->Location = System::Drawing::Point(108, 157);
+			this->btncot->Name = L"btncot";
+			this->btncot->Size = System::Drawing::Size(91, 70);
+			this->btncot->TabIndex = 21;
+			this->btncot->Text = L"cot";
+			this->btncot->UseVisualStyleBackColor = true;
+			this->btncot->Click += gcnew System::EventHandler(this, &MyForm::btncot_Click);
+			// 
+			// btncosh
+			// 
+			this->btncosh->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btncosh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btncosh->Location = System::Drawing::Point(205, 81);
+			this->btncosh->Name = L"btncosh";
+			this->btncosh->Size = System::Drawing::Size(91, 70);
+			this->btncosh->TabIndex = 20;
+			this->btncosh->Text = L"cosh";
+			this->btncosh->UseVisualStyleBackColor = true;
+			this->btncosh->Click += gcnew System::EventHandler(this, &MyForm::btncosh_Click);
+			// 
+			// btnsinh
+			// 
+			this->btnsinh->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnsinh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnsinh->Location = System::Drawing::Point(205, 5);
+			this->btnsinh->Name = L"btnsinh";
+			this->btnsinh->Size = System::Drawing::Size(91, 70);
+			this->btnsinh->TabIndex = 11;
+			this->btnsinh->Text = L"sinh";
+			this->btnsinh->UseVisualStyleBackColor = true;
+			this->btnsinh->Click += gcnew System::EventHandler(this, &MyForm::btnsinh_Click);
+			// 
+			// btncsc
+			// 
+			this->btncsc->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btncsc->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btncsc->Location = System::Drawing::Point(108, 5);
+			this->btncsc->Name = L"btncsc";
+			this->btncsc->Size = System::Drawing::Size(91, 70);
+			this->btncsc->TabIndex = 10;
+			this->btncsc->Text = L"csc";
+			this->btncsc->UseVisualStyleBackColor = true;
+			this->btncsc->Click += gcnew System::EventHandler(this, &MyForm::btncsc_Click);
+			// 
+			// pnlmatrix
+			// 
+			this->pnlmatrix->Controls->Add(this->btnmoveon);
+			this->pnlmatrix->Controls->Add(this->button9);
+			this->pnlmatrix->Controls->Add(this->btnmoveleft);
+			this->pnlmatrix->Controls->Add(this->button6);
+			this->pnlmatrix->Controls->Add(this->btnmoveright);
+			this->pnlmatrix->Controls->Add(this->button4);
+			this->pnlmatrix->Controls->Add(this->btntwotwo);
+			this->pnlmatrix->Controls->Add(this->btnfourfour);
+			this->pnlmatrix->Controls->Add(this->btnthreethree);
+			this->pnlmatrix->Location = System::Drawing::Point(266, 331);
+			this->pnlmatrix->Name = L"pnlmatrix";
+			this->pnlmatrix->Size = System::Drawing::Size(309, 233);
+			this->pnlmatrix->TabIndex = 50;
+			// 
+			// btnmoveon
+			// 
+			this->btnmoveon->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnmoveon->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnmoveon->Location = System::Drawing::Point(115, 84);
+			this->btnmoveon->Name = L"btnmoveon";
+			this->btnmoveon->Size = System::Drawing::Size(91, 70);
+			this->btnmoveon->TabIndex = 42;
+			this->btnmoveon->Text = L"↑";
+			this->btnmoveon->UseVisualStyleBackColor = true;
+			this->btnmoveon->Click += gcnew System::EventHandler(this, &MyForm::btnmoveon_Click);
+			// 
+			// button9
+			// 
+			this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button9->Location = System::Drawing::Point(212, 84);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(91, 70);
+			this->button9->TabIndex = 38;
+			this->button9->UseVisualStyleBackColor = true;
+			// 
+			// btnmoveleft
+			// 
+			this->btnmoveleft->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnmoveleft->Location = System::Drawing::Point(212, 160);
+			this->btnmoveleft->Name = L"btnmoveleft";
+			this->btnmoveleft->Size = System::Drawing::Size(91, 70);
+			this->btnmoveleft->TabIndex = 38;
+			this->btnmoveleft->Text = L"→";
+			this->btnmoveleft->UseVisualStyleBackColor = true;
+			this->btnmoveleft->Click += gcnew System::EventHandler(this, &MyForm::btnmoveleft_Click);
+			// 
+			// button6
+			// 
+			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button6->Location = System::Drawing::Point(115, 160);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(91, 70);
+			this->button6->TabIndex = 38;
+			this->button6->UseVisualStyleBackColor = true;
+			// 
+			// btnmoveright
+			// 
+			this->btnmoveright->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnmoveright->Location = System::Drawing::Point(18, 160);
+			this->btnmoveright->Name = L"btnmoveright";
+			this->btnmoveright->Size = System::Drawing::Size(91, 70);
+			this->btnmoveright->TabIndex = 38;
+			this->btnmoveright->Text = L"←";
+			this->btnmoveright->UseVisualStyleBackColor = true;
+			this->btnmoveright->Click += gcnew System::EventHandler(this, &MyForm::btnmoveright_Click);
+			// 
+			// button4
+			// 
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button4->Location = System::Drawing::Point(18, 84);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(91, 70);
+			this->button4->TabIndex = 38;
+			this->button4->UseVisualStyleBackColor = true;
+			// 
+			// btntwotwo
+			// 
+			this->btntwotwo->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btntwotwo.BackgroundImage")));
+			this->btntwotwo->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btntwotwo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btntwotwo->Location = System::Drawing::Point(18, 8);
+			this->btntwotwo->Name = L"btntwotwo";
+			this->btntwotwo->Size = System::Drawing::Size(91, 70);
+			this->btntwotwo->TabIndex = 38;
+			this->btntwotwo->UseVisualStyleBackColor = true;
+			this->btntwotwo->Click += gcnew System::EventHandler(this, &MyForm::btntwotwo_Click);
+			// 
+			// btnfourfour
+			// 
+			this->btnfourfour->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnfourfour.BackgroundImage")));
+			this->btnfourfour->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnfourfour->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnfourfour->Location = System::Drawing::Point(212, 8);
+			this->btnfourfour->Name = L"btnfourfour";
+			this->btnfourfour->Size = System::Drawing::Size(91, 70);
+			this->btnfourfour->TabIndex = 38;
+			this->btnfourfour->UseVisualStyleBackColor = true;
+			this->btnfourfour->Click += gcnew System::EventHandler(this, &MyForm::btnfourfour_Click);
+			// 
+			// btnthreethree
+			// 
+			this->btnthreethree->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnthreethree.BackgroundImage")));
+			this->btnthreethree->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btnthreethree->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnthreethree->Location = System::Drawing::Point(115, 8);
+			this->btnthreethree->Name = L"btnthreethree";
+			this->btnthreethree->Size = System::Drawing::Size(91, 70);
+			this->btnthreethree->TabIndex = 38;
+			this->btnthreethree->UseVisualStyleBackColor = true;
+			this->btnthreethree->Click += gcnew System::EventHandler(this, &MyForm::btnthreethree_Click);
+			// 
+			// btnmovedown
+			// 
+			this->btnmovedown->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnmovedown->Location = System::Drawing::Point(381, 567);
+			this->btnmovedown->Name = L"btnmovedown";
+			this->btnmovedown->Size = System::Drawing::Size(91, 70);
+			this->btnmovedown->TabIndex = 12;
+			this->btnmovedown->Text = L"↓";
+			this->btnmovedown->UseVisualStyleBackColor = true;
+			this->btnmovedown->Click += gcnew System::EventHandler(this, &MyForm::btnmovedown_Click);
+			// 
+			// button8
+			// 
+			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->button8->Location = System::Drawing::Point(284, 567);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(91, 70);
+			this->button8->TabIndex = 12;
+			this->button8->UseVisualStyleBackColor = true;
+			// 
+			// pnlOntextBox1
+			// 
+			this->pnlOntextBox1->Controls->Add(this->textBox1);
+			this->pnlOntextBox1->Location = System::Drawing::Point(277, 71);
+			this->pnlOntextBox1->Name = L"pnlOntextBox1";
+			this->pnlOntextBox1->Size = System::Drawing::Size(883, 186);
+			this->pnlOntextBox1->TabIndex = 51;
+			// 
+			// pnlOntextmatrix
+			// 
+			this->pnlOntextmatrix->Controls->Add(this->label1);
+			this->pnlOntextmatrix->Controls->Add(this->btnMatrixAnswer);
+			this->pnlOntextmatrix->Controls->Add(this->R4C4);
+			this->pnlOntextmatrix->Controls->Add(this->R4C3);
+			this->pnlOntextmatrix->Controls->Add(this->R4C2);
+			this->pnlOntextmatrix->Controls->Add(this->R4C1);
+			this->pnlOntextmatrix->Controls->Add(this->R3C4);
+			this->pnlOntextmatrix->Controls->Add(this->R3C3);
+			this->pnlOntextmatrix->Controls->Add(this->R3C2);
+			this->pnlOntextmatrix->Controls->Add(this->R2C4);
+			this->pnlOntextmatrix->Controls->Add(this->R3C1);
+			this->pnlOntextmatrix->Controls->Add(this->R2C3);
+			this->pnlOntextmatrix->Controls->Add(this->R2C2);
+			this->pnlOntextmatrix->Controls->Add(this->R1C4);
+			this->pnlOntextmatrix->Controls->Add(this->R2C1);
+			this->pnlOntextmatrix->Controls->Add(this->R1C3);
+			this->pnlOntextmatrix->Controls->Add(this->R1C2);
+			this->pnlOntextmatrix->Controls->Add(this->R1C1);
+			this->pnlOntextmatrix->Location = System::Drawing::Point(273, 59);
+			this->pnlOntextmatrix->Name = L"pnlOntextmatrix";
+			this->pnlOntextmatrix->Size = System::Drawing::Size(895, 195);
+			this->pnlOntextmatrix->TabIndex = 52;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->label1->Location = System::Drawing::Point(431, 83);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(80, 42);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"  =  ";
+			// 
+			// btnMatrixAnswer
+			// 
+			this->btnMatrixAnswer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->btnMatrixAnswer->Location = System::Drawing::Point(593, 12);
+			this->btnMatrixAnswer->Multiline = true;
+			this->btnMatrixAnswer->Name = L"btnMatrixAnswer";
+			this->btnMatrixAnswer->Size = System::Drawing::Size(285, 178);
+			this->btnMatrixAnswer->TabIndex = 0;
+			// 
+			// R4C4
+			// 
+			this->R4C4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R4C4->Location = System::Drawing::Point(269, 150);
+			this->R4C4->Multiline = true;
+			this->R4C4->Name = L"R4C4";
+			this->R4C4->Size = System::Drawing::Size(80, 40);
+			this->R4C4->TabIndex = 0;
+			// 
+			// R4C3
+			// 
+			this->R4C3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R4C3->Location = System::Drawing::Point(183, 150);
+			this->R4C3->Multiline = true;
+			this->R4C3->Name = L"R4C3";
+			this->R4C3->Size = System::Drawing::Size(80, 40);
+			this->R4C3->TabIndex = 0;
+			// 
+			// R4C2
+			// 
+			this->R4C2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R4C2->Location = System::Drawing::Point(97, 150);
+			this->R4C2->Multiline = true;
+			this->R4C2->Name = L"R4C2";
+			this->R4C2->Size = System::Drawing::Size(80, 40);
+			this->R4C2->TabIndex = 0;
+			// 
+			// R4C1
+			// 
+			this->R4C1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R4C1->Location = System::Drawing::Point(11, 150);
+			this->R4C1->Multiline = true;
+			this->R4C1->Name = L"R4C1";
+			this->R4C1->Size = System::Drawing::Size(80, 40);
+			this->R4C1->TabIndex = 0;
+			// 
+			// R3C4
+			// 
+			this->R3C4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R3C4->Location = System::Drawing::Point(269, 104);
+			this->R3C4->Multiline = true;
+			this->R3C4->Name = L"R3C4";
+			this->R3C4->Size = System::Drawing::Size(80, 40);
+			this->R3C4->TabIndex = 0;
+			// 
+			// R3C3
+			// 
+			this->R3C3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R3C3->Location = System::Drawing::Point(183, 104);
+			this->R3C3->Multiline = true;
+			this->R3C3->Name = L"R3C3";
+			this->R3C3->Size = System::Drawing::Size(80, 40);
+			this->R3C3->TabIndex = 0;
+			// 
+			// R3C2
+			// 
+			this->R3C2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R3C2->Location = System::Drawing::Point(97, 104);
+			this->R3C2->Multiline = true;
+			this->R3C2->Name = L"R3C2";
+			this->R3C2->Size = System::Drawing::Size(80, 40);
+			this->R3C2->TabIndex = 0;
+			// 
+			// R2C4
+			// 
+			this->R2C4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R2C4->Location = System::Drawing::Point(269, 58);
+			this->R2C4->Multiline = true;
+			this->R2C4->Name = L"R2C4";
+			this->R2C4->Size = System::Drawing::Size(80, 40);
+			this->R2C4->TabIndex = 0;
+			// 
+			// R3C1
+			// 
+			this->R3C1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R3C1->Location = System::Drawing::Point(11, 104);
+			this->R3C1->Multiline = true;
+			this->R3C1->Name = L"R3C1";
+			this->R3C1->Size = System::Drawing::Size(80, 40);
+			this->R3C1->TabIndex = 0;
+			// 
+			// R2C3
+			// 
+			this->R2C3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R2C3->Location = System::Drawing::Point(183, 58);
+			this->R2C3->Multiline = true;
+			this->R2C3->Name = L"R2C3";
+			this->R2C3->Size = System::Drawing::Size(80, 40);
+			this->R2C3->TabIndex = 0;
+			// 
+			// R2C2
+			// 
+			this->R2C2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R2C2->Location = System::Drawing::Point(97, 58);
+			this->R2C2->Multiline = true;
+			this->R2C2->Name = L"R2C2";
+			this->R2C2->Size = System::Drawing::Size(80, 40);
+			this->R2C2->TabIndex = 0;
+			// 
+			// R1C4
+			// 
+			this->R1C4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R1C4->Location = System::Drawing::Point(269, 12);
+			this->R1C4->Multiline = true;
+			this->R1C4->Name = L"R1C4";
+			this->R1C4->Size = System::Drawing::Size(80, 40);
+			this->R1C4->TabIndex = 0;
+			// 
+			// R2C1
+			// 
+			this->R2C1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R2C1->Location = System::Drawing::Point(11, 58);
+			this->R2C1->Multiline = true;
+			this->R2C1->Name = L"R2C1";
+			this->R2C1->Size = System::Drawing::Size(80, 40);
+			this->R2C1->TabIndex = 0;
+			// 
+			// R1C3
+			// 
+			this->R1C3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R1C3->Location = System::Drawing::Point(183, 12);
+			this->R1C3->Multiline = true;
+			this->R1C3->Name = L"R1C3";
+			this->R1C3->Size = System::Drawing::Size(80, 40);
+			this->R1C3->TabIndex = 0;
+			// 
+			// R1C2
+			// 
+			this->R1C2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R1C2->Location = System::Drawing::Point(97, 12);
+			this->R1C2->Multiline = true;
+			this->R1C2->Name = L"R1C2";
+			this->R1C2->Size = System::Drawing::Size(80, 40);
+			this->R1C2->TabIndex = 0;
+			// 
+			// R1C1
+			// 
+			this->R1C1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(222)));
+			this->R1C1->Location = System::Drawing::Point(11, 12);
+			this->R1C1->Multiline = true;
+			this->R1C1->Name = L"R1C1";
+			this->R1C1->Size = System::Drawing::Size(80, 40);
+			this->R1C1->TabIndex = 0;
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->ClientSize = System::Drawing::Size(1180, 666);
+			this->Controls->Add(this->pnlOntextBox1);
+			this->Controls->Add(this->btnLeft);
+			this->Controls->Add(this->btnRight);
+			this->Controls->Add(this->btnEquals);
+			this->Controls->Add(this->btnZ);
+			this->Controls->Add(this->btnRoot);
+			this->Controls->Add(this->btnRootV);
+			this->Controls->Add(this->btnPLife);
+			this->Controls->Add(this->btnPlus);
+			this->Controls->Add(this->btnMinus);
+			this->Controls->Add(this->btnDot);
+			this->Controls->Add(this->btn0);
+			this->Controls->Add(this->btnY);
+			this->Controls->Add(this->btnPow);
+			this->Controls->Add(this->btn3);
+			this->Controls->Add(this->btnMultipled);
+			this->Controls->Add(this->btn2);
+			this->Controls->Add(this->btn1);
+			this->Controls->Add(this->btnX);
+			this->Controls->Add(this->btnFraction);
+			this->Controls->Add(this->btn6);
+			this->Controls->Add(this->btnDevide);
+			this->Controls->Add(this->btn5);
+			this->Controls->Add(this->btn4);
+			this->Controls->Add(this->btnI);
+			this->Controls->Add(this->btnFactorial);
+			this->Controls->Add(this->button8);
+			this->Controls->Add(this->button16);
+			this->Controls->Add(this->btn9);
+			this->Controls->Add(this->btnDelete);
+			this->Controls->Add(this->btn8);
+			this->Controls->Add(this->btn7);
+			this->Controls->Add(this->btnPi);
+			this->Controls->Add(this->btnLn);
+			this->Controls->Add(this->btnLogV);
+			this->Controls->Add(this->btnLog);
+			this->Controls->Add(this->btnClear);
+			this->Controls->Add(this->pnlTopSize);
+			this->Controls->Add(this->pnlLeftSize);
+			this->Controls->Add(this->pnlOntextmatrix);
+			this->Controls->Add(this->pnlcalculus);
+			this->Controls->Add(this->pnltrigonmetry);
+			this->Controls->Add(this->btnPRight);
+			this->Controls->Add(this->btnmovedown);
+			this->Controls->Add(this->pnlmatrix);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Location = System::Drawing::Point(50, 50);
+			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"MyForm";
+			this->pnlLeftSize->ResumeLayout(false);
+			this->pnlcalculus->ResumeLayout(false);
+			this->pnltrigonmetry->ResumeLayout(false);
+			this->pnlmatrix->ResumeLayout(false);
+			this->pnlOntextBox1->ResumeLayout(false);
+			this->pnlOntextBox1->PerformLayout();
+			this->pnlOntextmatrix->ResumeLayout(false);
+			this->pnlOntextmatrix->PerformLayout();
+			this->ResumeLayout(false);
+
+		}
+#pragma endregion
+
+		double first, second = first = 0;
+		char Operator;
+	
+		//โค้ดออกเสียงทำขึ้นมา
+		void SpeakZero() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("zero");
+		}
+		void SpeakOne() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("one");
+		}
+		void SpeakTwo() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Two");
+		}
+		void SpeakThree() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Three");
+		}
+		void SpeakFour() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Four");
+		}
+		void SpeakFive() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Five");
+		}
+		void SpeakSix() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Six");
+		}
+		void SpeakSeven() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Seven");
+		}
+		void SpeakEight() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Eigth");
+		}
+		void SpeakNine() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Nine");
+		}
+		void SpeakCalculus() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Function Calculus");
+		}
+		void SpeakTrigonmetry() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Function Trigonmetry");
+		}
+		void SpeakMetrix() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Metrix");
+		}
+		void SpeakClose() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Close");
+		}
+		void SpeakE() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("E");
+		}
+		void SpeakFact() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Factorail");
+		}
+		void SpeakPie() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Pie");
+		}
+		void SpeakLon() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Lon");
+		}
+		void SpeakSin() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Sin");
+		}
+		void SpeakCos() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Cos");
+		}
+		void SpeakTan() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Tan");
+		}
+		void SpeakCosec() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Cosec");
+		}
+		void SpeakSec() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Sec");
+		}
+		void SpeakCot() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Cot");
+		}
+		void SpeakSinh() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Sin h");
+		}
+		void SpeakCosh() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Cos h");
+		}
+		void SpeakTanh() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Tan h");
+		}
+		void SpeakFaction() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Faction");
+		}
+		void SpeakPow() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("pow");
+		}
+		void SpeakRoot() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Root");
+		}
+		void SpeakRootv() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Root V");
+		}
+		void SpeakLog() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("log");
+		}
+		void SpeakDelete() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Delete");
+		}
+		void SpeakClear() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Clear");
+		}
+		void SpeakPlus() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Plus");
+		}
+		void SpeakMinus() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Minus");
+		}
+		void SpeakMultipled() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Multipled");
+		}
+		void SpeakDevide() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Devide");
+		}
+		void SpeakLeft() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Left Parenthesis");
+		}
+		void SpeakRight() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Rigth Parenthesis");
+		}
+		void SpeakAnswer() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak(textBox1->Text);
+		}
+		void SpeakDot() {
+			System::Speech::Synthesis::SpeechSynthesizer^ spi = gcnew System::Speech::Synthesis::SpeechSynthesizer(); // spi is the variable name
+			spi->Speak("Dot");
+		}
+
+
+private: System::Void btncalcules_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakCalculus));
+	thread->Start();
+	pnlOnButton->Height = btncalculus->Height;
+	pnlOnButton->Top = btncalculus->Top;
+	pnlcalculus->Visible = true;
+	pnlmatrix->Visible = false;
+	pnltrigonmetry->Visible = false;
+	btnPLife->Visible = true;
+	btnPRight->Visible = true;
+	pnlOntextBox1->Visible = true;
+	pnlOntextmatrix->Visible = false;
+}
+private: System::Void btntrigonmetry_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakTrigonmetry));
+	thread->Start();
+	pnlOnButton->Height = btntrigonmetry->Height;
+	pnlOnButton->Top = btntrigonmetry->Top;
+	pnlcalculus->Visible = false;
+	pnlmatrix->Visible = false;
+	pnltrigonmetry->Visible = true;
+	btnPLife->Visible = true;
+	btnPRight->Visible = true;
+	pnlOntextBox1->Visible = true;
+	pnlOntextmatrix->Visible = false;
+}
+private: System::Void btnmatrix_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakMetrix));
+	thread->Start();
+	pnlOnButton->Height = btnmatrix->Height;
+	pnlOnButton->Top = btnmatrix->Top;
+	pnlcalculus->Visible = false;
+	pnlmatrix->Visible = true;
+	pnltrigonmetry->Visible = false;
+	btnPLife->Visible = false;
+	btnPRight->Visible = false;
+	pnlOntextmatrix->Visible = true;
+	R1C3->Visible = false;
+	R1C4->Visible = false;
+	R2C3->Visible = false;
+	R2C4->Visible = false;
+	R3C1->Visible = false;
+	R3C2->Visible = false;
+	R3C3->Visible = false;
+	R3C4->Visible = false;
+	R4C1->Visible = false;
+	R4C2->Visible = false;
+	R4C3->Visible = false;
+	R4C4->Visible = false;
+}
+private: System::Void btnout_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakClose));
+	thread->Start();
+	this->Close();
+}
+
+private: System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakOne));
+	thread->Start();
+	if (textBox1->Text == "0") // ตรวจสอบว่า textBox1 ว่างหรือไม่
+		textBox1->Clear();
+		int position = textBox1->SelectionStart; // รับตำแหน่งที่เลือกอยู่ใน textBox1
+		textBox1->Text = textBox1->Text->Insert(position, "1"); // แทรก "2" ที่ตำแหน่ง position
+		textBox1->SelectionStart = position + 1; // ตั้งค่าตำแหน่งเลือกใหม่หลังจากการแทรก
+		
+}
+private: System::Void btn2_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakTwo));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "2");
+	textBox1->SelectionStart = position + 1;
+	
+}
+private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakThree));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "3");
+	textBox1->SelectionStart = position + 1;
+	
+}
+private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFour));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "4");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn5_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFive));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "5");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn6_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakSix));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "6");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn7_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakSeven));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "7");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn8_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakEight));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "8");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn9_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakNine));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "9");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btn0_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakZero));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "0");
+	textBox1->SelectionStart = position + 1;
+}	   
+private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDelete));
+	thread->Start();
+	if (textBox1->SelectionLength > 0)
+	{
+		// ถ้ามีข้อความถูกเลือก, ให้ลบข้อความนั้นออก
+		int startIndex = textBox1->SelectionStart;
+		int length = textBox1->SelectionLength;
+		textBox1->Text = textBox1->Text->Remove(startIndex, length);
+	}
+	else if (textBox1->SelectionStart > 0)
+	{
+		// ถ้าไม่มีข้อความถูกเลือก และมีตำแหน่ง cursor ที่มากกว่า 0
+		// ให้ลบอักขระที่ตำแหน่งก่อนหน้า cursor
+		int cursorPos = textBox1->SelectionStart;
+		textBox1->Text = textBox1->Text->Remove(cursorPos - 1, 1);
+		textBox1->SelectionStart = cursorPos - 1; // เลื่อน cursor ไปที่ตำแหน่งก่อนหน้า
+	}
+	else if (textBox1->Text->Length > 0)
+	{
+		textBox1->Text = textBox1->Text->Remove(textBox1->Text->Length - 1, 1);
+	}
+}
+private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakClear));
+	thread->Start();
+	textBox1->Clear();
+	first = second = 0;
+	Operator = ' ';
+}
+
+private: System::Void btnPlus_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakPlus));
+	thread->Start();
+}
+private: System::Void btnMinus_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakMinus));
+	thread->Start();
+}
+private: System::Void btnMultipled_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakMultipled));
+	thread->Start();
+}
+private: System::Void btnDevide_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDevide));
+	thread->Start();
+}
+
+private: System::Void btnLeft_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakLeft));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "(");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btnRight_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRight));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, ")");
+	textBox1->SelectionStart = position + 1;
+}
+
+private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakAnswer));
+	thread->Start();
+	String^ expression = textBox1->Text->Trim(); // ดึงข้อมูลที่ผู้ใช้ป้อนใน textBox1
+
+	// ตรวจสอบว่ามีการป้อนข้อมูลหรือไม่
+	if (expression->Length == 0) {
+		// ถ้าไม่มีข้อมูลให้ไม่ดำเนินการใด ๆ และออกจากฟังก์ชัน
+		return;
+	}
+
+	// ตรวจสอบว่าผู้ใช้ป้อนค่า sin(, cos( หรือ tan( หรือไม่
+	if (expression->StartsWith("sin(")) {
+		// หากเป็น sin( ให้ดำเนินการคำนวณค่า sin
+		CalculateTrigonometricFunction(expression, "sin");
+	}
+	else if (expression->StartsWith("cos(")) {
+		// หากเป็น cos( ให้ดำเนินการคำนวณค่า cos
+		CalculateTrigonometricFunction(expression, "cos");
+	}
+	else if (expression->StartsWith("tan(")) {
+		// หากเป็น tan( ให้ดำเนินการคำนวณค่า tan
+		CalculateTrigonometricFunction(expression, "tan");
+	}
+	else if (expression->StartsWith("cosec(")) {
+		CalculateTrigonometricFunction(expression, "cosec");
+	}
+	else if (expression->StartsWith("sec(")) {
+		CalculateTrigonometricFunction(expression, "sec");
+	}
+	else if (expression->StartsWith("cot(")) {
+		CalculateTrigonometricFunction(expression, "cot");
+	}
+	else if (expression->StartsWith("sinh(")) {
+		CalculateTrigonometricFunction(expression, "sinh");
+	}
+	else if (expression->StartsWith("cosh(")) {
+		CalculateTrigonometricFunction(expression, "cosh");
+	}
+	else if (expression->StartsWith("tanh(")) {
+		CalculateTrigonometricFunction(expression, "tanh");
+	}
+	else if (expression->StartsWith("log(")) {
+		CalculateTrigonometricFunction(expression, "log");
+	}
+	else if (expression->StartsWith("ln(")) {
+		CalculateTrigonometricFunction(expression, "ln");
+	}
+	else if (expression == "e") {
+		// แสดงค่าของ "e" ใน textBox1
+		textBox1->Text = Math::E.ToString();
+	}
+
+	String^ text = textBox1->Text;
+
+	if (!String::IsNullOrEmpty(text)) {
+
+		if (text->Contains("e^")) {
+			int index = text->IndexOf("e^") + 2; // เพิ่ม 2 เพื่อให้ index เริ่มต้นที่ตัวเลขที่ต้องการยกกำลัง
+			String^ exponentString = text->Substring(index); // เลือกส่วนของข้อความที่เป็นที่ยกกำลัง
+			double exponent = Double::Parse(exponentString); // แปลงเป็นเลขที่จะใช้ในการยกกำลัง
+
+			double result = Math::Pow(2.71828, exponent); // คำนวณค่า e^exponent
+
+			MessageBox::Show(L" ผลลัพธ์ " + result);
+			textBox1->Text = result.ToString();
+		}
+		else if (text->Contains("^")) {
+			array<String^>^ parts = text->Split('^');
+
+			if (parts->Length == 2) {
+				double baseNumber = Convert::ToDouble(parts[0]);
+				double exponent = Convert::ToDouble(parts[1]);
+
+				double result = Math::Pow(baseNumber, exponent);
+
+				String^ resultMessage = L"เลขฐาน: " + baseNumber.ToString() + L"\nเลขยกกำลัง: " + exponent.ToString() + L"\nผลลัพธ์: " + result.ToString();
+				MessageBox::Show(resultMessage);
+
+				textBox1->Text = result.ToString();
+			}
+		}
+		else if (text->Contains("!")) {
+			int index = text->IndexOf("!");
+			String^ numberString = text->Substring(0, index);
+			int number = Int32::Parse(numberString);
+
+			int result = 1;
+			for (int i = number; i >= 1; i--) {
+				result *= i;
+			}
+
+			MessageBox::Show(L" ผลลัพธ์ " + result);
+			textBox1->Text = result.ToString();
+		}
+		else if (text->Contains("/")) {
+			array<String^>^ parts = text->Split('/');
+
+			if (parts->Length == 2) {
+				double fractionPart = Convert::ToDouble(parts[0]);
+				double wholePart = Convert::ToDouble(parts[1]);
+
+				if (wholePart != 0) {
+					double result = fractionPart / wholePart;
+
+					String^ resultMessage = L"เศษ: " + fractionPart.ToString() + L"\nส่วน: " + wholePart.ToString() + L"\nผลลัพธ์: " + result.ToString();
+					MessageBox::Show(resultMessage);
+
+					textBox1->Text = result.ToString();
+				}
+				else {
+					MessageBox::Show(L"ส่วนตัวหารต้องไม่เป็นศูนย์");
+				}
+			}
+		}
+		else if (text->Contains("log(") && text->Contains(")")) {
+			// ค้นหาตำแหน่งของสัญลักษณ์วงเล็บแรกและสุดท้าย
+			int startIndex = text->IndexOf("log(") + 4; // เพิ่ม 4 เพื่อข้ามตัวอักษร "log("
+			int endIndex = text->LastIndexOf(')');
+
+			// ตรวจสอบว่ามีสัญลักษณ์วงเล็บทั้งสองตัวหรือไม่
+			if (endIndex > startIndex) {
+				// แยกฐานและค่า log
+				String^ baseLog = text->Substring(startIndex, endIndex - startIndex);
+				String^ valueLog = text->Substring(endIndex + 1); // เพิ่มการข้ามเครื่องหมาย ")" 
+
+				// แปลงค่าฐานและค่า log เป็น double
+				double baseLogValue = Convert::ToDouble(baseLog);
+				double valueLogValue = Convert::ToDouble(valueLog);
+
+				// คำนวณค่า log
+				double result = log(valueLogValue) / log(baseLogValue); // ใช้ฟังก์ชัน log() เพื่อคำนวณ log ฐาน 10
+
+				// แสดงผลลัพธ์ใน MessageBox
+				String^ resultMessage = L"ฐาน: " + baseLog + L"\nค่า log: " + valueLog + L"\nผลลัพธ์: " + result.ToString();
+				MessageBox::Show(resultMessage);
+
+				// แสดงผลลัพธ์ใน textBox1
+				textBox1->Text = result.ToString();
+			}
+		}
+		else if (text->Contains("(") && text->Contains(")")) {
+			// ค้นหาตำแหน่งของสัญลักษณ์วงเล็บแรกและสุดท้าย
+			int startIndex = text->IndexOf('(');
+			int endIndex = text->LastIndexOf(')');
+
+			// ตรวจสอบว่ามีสัญลักษณ์วงเล็บทั้งสองตัวหรือไม่
+			if (endIndex > startIndex) {
+				// แยกเลขรากและค่าในราก
+				String^ baseRoot = text->Substring(startIndex + 1, endIndex - startIndex - 1);
+				String^ valueInRoot = text->Substring(endIndex + 2); // เพิ่มการข้ามเครื่องหมาย √
+
+				// แปลงค่าเลขรากและค่าในรากเป็น double
+				double baseRootValue = Convert::ToDouble(baseRoot);
+				double valueInRootValue = Convert::ToDouble(valueInRoot);
+
+				// คำนวณค่าในราก
+				double result = Math::Pow(valueInRootValue, 1.0 / baseRootValue);
+
+				// แสดงผลลัพธ์ใน MessageBox
+				String^ resultMessage = L"รากที่ : " + baseRoot + L"\nของ: " + valueInRoot + L"\nผลลัพธ์: " + result.ToString();
+				MessageBox::Show(resultMessage);
+
+				// แสดงผลลัพธ์ใน textBox1
+				textBox1->Text = result.ToString();
+			}
+		}
+		else if (text->Contains(L"√")) {
+			int index = text->IndexOf(L"√");
+			String^ numberString = text->Substring(index + 1); // เอาตั้งแต่ตัวเลขที่ติดตัว √
+			double number = Double::Parse(numberString);
+
+			double result = sqrt(number); // คำนวณรากที่สอง
+
+			MessageBox::Show(L" ผลลัพธ์ " + result);
+			textBox1->Text = result.ToString();
+		}
+	}
+}
+
+void CalculateTrigonometricFunction(String^ expression, String^ function) {
+	// ตัดคำหน้าออกเพื่อให้ได้ค่าที่ต้องการคำนวณ
+	String^ valueString = expression->Substring(function->Length + 1, expression->Length - function->Length - 2);
+	double value = System::Convert::ToDouble(valueString);
+
+	// ดำเนินการคำนวณค่าตามฟังก์ชันที่ระบุ (sin, cos, หรือ tan)
+	double result;
+	if (function == "sin") {
+		result = Math::Sin(value);
+	}
+	else if (function == "cos") {
+		result = Math::Cos(value);
+	}
+	else if (function == "tan") {
+		result = Math::Tan(value);
+	}
+	else if (function == "cosec") {
+		result = 1.0 / Math::Sin(value);
+	}
+	else if (function == "sec") {
+		result = 1.0 / Math::Cos(value);
+	}
+	else if (function == "cot") {
+		result = 1.0 / Math::Tan(value);
+	}
+	else if (function == "sinh") {
+		result = Math::Sinh(value);
+	}
+	else if (function == "cosh") {
+		result = Math::Cosh(value);
+	}
+	else if (function == "tanh") {
+		result = Math::Tanh(value);
+	}
+	else if (function == "log") {
+		result = Math::Log10(value);
+	}
+	else if (function == "ln") {
+		result = log(value);
+	}
+
+	// แสดงผลลัพธ์ใน textBox1
+	textBox1->Text = System::Convert::ToString(result);
+}
+
+
+
+
+private: System::Void btnsin_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakSin));
+	thread->Start();
+	textBox1->Text += "sin(";
+}
+private: System::Void btncos_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakCos));
+	thread->Start();
+	textBox1->Text += "cos(";
+}
+private: System::Void btntan_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakTan));
+	thread->Start();
+	textBox1->Text += "tan(";
+}
+private: System::Void btncsc_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakCosec));
+	thread->Start();
+	textBox1->Text += "cosec(";
+}
+private: System::Void btnsec_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakSec));
+	thread->Start();
+	textBox1->Text += "sec(";
+}
+private: System::Void btncot_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakCot));
+	thread->Start();
+	textBox1->Text += "cot(";
+
+}
+private: System::Void btnsinh_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakSinh));
+	thread->Start();
+	textBox1->Text += "sinh(";
+}
+private: System::Void btncosh_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakCosh));
+	thread->Start();
+	textBox1->Text += "cosh(";
+
+}
+private: System::Void btntanh_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakTanh));
+	thread->Start();
+	textBox1->Text += "tanh(";
+}
+
+private: System::Void btnLog_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakLog));
+	thread->Start();
+	textBox1->Text += "log(";
+}
+private: System::Void btnLn_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakLon));
+	thread->Start();
+	textBox1->Text += "ln(";
+
+}
+private: System::Void btnPi_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakPie));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	textBox1->Text += Math::PI.ToString();
+}
+private: System::Void btnE_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakE));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "e");
+	textBox1->SelectionStart = position + 1;
+
+}
+private: System::Void btnFactorial_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFact));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "!");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btnFraction_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFaction));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "/");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btnPow_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakPow));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, "^");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btnRoot_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRoot));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, L"√");
+	textBox1->SelectionStart = position + 1;
+}
+private: System::Void btnRootV_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRootv));
+	thread->Start();
+	if (textBox1->Text == "0") {
+		textBox1->Clear();
+	}
+	textBox1->Text += "(";
+	textBox1->Text += ")";
+	textBox1->Text += L"√";
+}
+	   
+private: System::Void btnLogV_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox1->Text == "0") {
+		textBox1->Clear();
+	}
+	textBox1->Text += "log";
+	textBox1->Text += "(";
+	textBox1->Text += ")";
+}
+private: System::Void btnDot_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDot));
+	thread->Start();
+	if (textBox1->Text == "0")
+		textBox1->Clear();
+	int position = textBox1->SelectionStart;
+	textBox1->Text = textBox1->Text->Insert(position, ".");
+	textBox1->SelectionStart = position + 1;
+	   
+}
+private: System::Void BtnPLife_Click(System::Object^ sender, System::EventArgs^ e) {
+	// โฟกัสที่ TextBox
+	textBox1->Focus();
+
+	// ส่งคีย์บอร์ดซึ่งไม่ทำอะไร โดยเรียกใช้งานงานก่อนทั้งหมดใน TextBox
+	SendKeys::Send("{LEFT}");
+}
+private: System::Void btnPRight_Click(System::Object^ sender, System::EventArgs^ e) {
+	// โฟกัสที่ TextBox
+	textBox1->Focus();
+
+	// ส่งคีย์บอร์ดเพื่อเลื่อนไปทางขวา
+	SendKeys::Send("{RIGHT}");
+}
+private: System::Void btnEV_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox1->Text == "0") {
+		textBox1->Clear();
+	}
+	textBox1->Text += "e^";
+}
+private: System::Void btntwotwo_Click(System::Object^ sender, System::EventArgs^ e) {
+	pnlOntextBox1->Visible = false;
+	pnlOntextmatrix->Visible = true;
+	R1C1->Visible = true;
+	R1C2->Visible = true;
+	R1C3->Visible = false;
+	R1C4->Visible = false;
+	R2C1->Visible = true;
+	R2C2->Visible = true;
+	R2C3->Visible = false;
+	R2C4->Visible = false;
+	R3C1->Visible = false;
+	R3C2->Visible = false;
+	R3C3->Visible = false;
+	R3C4->Visible = false;
+	R4C1->Visible = false;
+	R4C2->Visible = false;
+	R4C3->Visible = false;
+	R4C4->Visible = false;
+}
+private: System::Void btnthreethree_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	pnlOntextBox1->Visible = false;
+	pnlOntextmatrix->Visible = true;
+	R1C1->Visible = true;
+	R1C2->Visible = true;
+	R1C3->Visible = true;
+	R1C4->Visible = false;
+	R2C1->Visible = true;
+	R2C2->Visible = true;
+	R2C3->Visible = true;
+	R2C4->Visible = false;
+	R3C1->Visible = true;
+	R3C2->Visible = true;
+	R3C3->Visible = true;
+	R3C4->Visible = false;
+	R4C1->Visible = false;
+	R4C2->Visible = false;
+	R4C3->Visible = false;
+	R4C4->Visible = false;
+}
+private: System::Void btnfourfour_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	pnlOntextBox1->Visible = false;
+	pnlOntextmatrix->Visible = true;
+	R1C1->Visible = true;
+	R1C2->Visible = true;
+	R1C3->Visible = true;
+	R1C4->Visible = true;
+	R2C1->Visible = true;
+	R2C2->Visible = true;
+	R2C3->Visible = true;
+	R2C4->Visible = true;
+	R3C1->Visible = true;
+	R3C2->Visible = true;
+	R3C3->Visible = true;
+	R3C4->Visible = true;
+	R4C1->Visible = true;
+	R4C2->Visible = true;
+	R4C3->Visible = true;
+	R4C4->Visible = true;
+}
+private: System::Void btnmoveon_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnmovedown_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnmoveright_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnmoveleft_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
+}

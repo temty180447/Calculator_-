@@ -59,33 +59,14 @@ void sLinear(double a, double b) {
     }
 }
 
-int main() {
-    char option;
+
     double a, b, c, d;
-
-    //q : quadratic, c : cubic, l : linear
-    cin >> option;
-
-    switch (option) {
-        case 'q':
-           //(ax^2 + bx + c)
-            cin >> a >> b >> c;
+        //(ax^2 + bx + c)
             sQuadratic(a, b, c);
-            break;
-        case 'c':
-            //(ax^3 + bx^2 + cx + d)
-            cin >> a >> b >> c >> d;
-            sCubic(a, b, c, d);
-            break;
-        case 'l':
-            //(ax + b)
-            cin >> a >> b;
-            sLinear(a, b);
-            break;
-        default:
-            //"Invalid option\n";
-            break;
-    }
 
-    return 0;
+        //(ax^3 + bx^2 + cx + d)
+            sCubic(a, b, c, d);
+
+        //(ax + b)
+            sLinear(a, b);ห
 }

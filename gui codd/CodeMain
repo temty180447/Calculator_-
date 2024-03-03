@@ -2118,57 +2118,69 @@ private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btnPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakPlus));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "+");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "+");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnMinus_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakMinus));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "-");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "-");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnMultipled_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakMultipled));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "*");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "*");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnDevide_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDevide));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "/");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "/");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 
 private: System::Void btnLeft_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakLeft));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "(");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "(");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnRight_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRight));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, ")");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, ")");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 
 
@@ -2378,67 +2390,82 @@ private: System::Void btnE_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void btnFactorial_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFact));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "!");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "!");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnFraction_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakFaction));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "/");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "/");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnPow_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakPow));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "^");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "^");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnRoot_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRoot));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, L"√");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, L"√");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnRootV_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakRootv));
 	thread->Start();
-	if (textBox1->Text == "0") {
-		textBox1->Clear();
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "(");
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, ")");
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, L"√");
+		focusedTextBox->SelectionStart = position + 1;
 	}
-	textBox1->Text += "(";
-	textBox1->Text += ")";
-	textBox1->Text += L"√";
 }
 	   
 private: System::Void btnLogV_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (textBox1->Text == "0") {
-		textBox1->Clear();
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "log");
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "(");
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, ")");
+		focusedTextBox->SelectionStart = position + 1;
 	}
-	textBox1->Text += "log";
-	textBox1->Text += "(";
-	textBox1->Text += ")";
 }
 private: System::Void btnDot_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDot));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, ".");
-	textBox1->SelectionStart = position + 1;
-	   
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, ".");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void BtnPLife_Click(System::Object^ sender, System::EventArgs^ e) {
 	// โฟกัสที่ TextBox
@@ -2602,41 +2629,47 @@ private: System::Void textBox1_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btnI_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakI));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "i");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "i");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 
 private: System::Void btnX_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakX));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "x");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "x");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnY_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakY));
 	thread->Start();
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "y");
-	textBox1->SelectionStart = position + 1;
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "y");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 private: System::Void btnZ_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakZ));
 	thread->Start();
-
-	if (textBox1->Text == "0")
-		textBox1->Clear();
-	int position = textBox1->SelectionStart;
-	textBox1->Text = textBox1->Text->Insert(position, "z");
-	textBox1->SelectionStart = position + 1;
-
+	if (focusedTextBox != nullptr) {
+		if (focusedTextBox->Text == "0")
+			focusedTextBox->Clear();
+		int position = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Insert(position, "z");
+		focusedTextBox->SelectionStart = position + 1;
+	}
 }
 };
 }

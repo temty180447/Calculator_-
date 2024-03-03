@@ -68,4 +68,4 @@ void sLinear(double a, double b) {
             sCubic(a, b, c, d);
 
         //(ax + b)
-            sLinear(a, b);ห
+            sLinear(a, b);

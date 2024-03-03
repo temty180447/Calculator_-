@@ -59,33 +59,13 @@ void sLinear(double a, double b) {
     }
 }
 
-int main() {
-    char option;
+
     double a, b, c, d;
-
-    //"Select equation type (q for quadratic, c for cubic, l for linear): ";
-    cin >> option;
-
-    switch (option) {
-        case 'q':
-           //"Enter coefficients for quadratic equation (ax^2 + bx + c): ";
-            cin >> a >> b >> c;
-            sQuadratic(a, b, c);
-            break;
-        case 'c':
-            //"Enter coefficients for cubic equation (ax^3 + bx^2 + cx + d): ";
-            cin >> a >> b >> c >> d;
+        //(ax^3 + bx^2 + cx + d)
             sCubic(a, b, c, d);
-            break;
-        case 'l':
-            // "Enter coefficients for linear equation (ax + b): ";
-            cin >> a >> b;
-            sLinear(a, b);
-            break;
-        default:
-            //"Invalid option\n";
-            break;
-    }
 
-    return 0;
-}
+        //(ax^2 + bx + c)
+            sQuadratic(a, b, c)
+
+        //(ax + b)
+            sLinear(a, b);

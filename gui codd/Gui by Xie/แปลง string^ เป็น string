@@ -1,0 +1,17 @@
+#include <iostream>
+#include <sstream>
+#include <cmath>
+#include <regex>
+#include <stack>
+#include <string>
+#include <cctype>
+#include <msclr/marshal_cppstd.h>
+
+String^ input = textBox1->Text; // รับข้อความจาก TextBox
+std::string inputString = msclr::interop::marshal_as<std::string>(input); // แปลง String^ เป็น string
+double result = evaluateEqu(inputString);
+
+// แปลงผลลัพธ์เป็น String^ เพื่อแสดงบน TextBox
+String^ resultString = result.ToString();
+textBox1->Text = resultString;
+

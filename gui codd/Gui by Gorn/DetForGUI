@@ -1,0 +1,56 @@
+// ฟังก์ชันสำหรับแปลงข้อความใน TextBox เป็นเมทริกซ์
+void ConvertTextToMatrix(String^ text, double matrix[][20], int& row, int& col) {
+	array<String^>^ lines = text->Split(Environment::NewLine->ToCharArray(), StringSplitOptions::RemoveEmptyEntries);
+	row = lines->Length;
+	col = 0;
+	for (int i = 0; i < row; i++) {
+		array<String^>^ elements = lines[i]->Split(' ');
+		col = Math::Max(col, elements->Length);
+		for (int j = 0; j < elements->Length; j++) {
+			matrix[i][j] = Convert::ToDouble(elements[j]);
+		}
+	}
+}
+
+private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+
+	double a[20][20];
+	int rowA, colA;	
+	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+
+	// คำนวณ det ของเมทริกซ์ A
+	double determinant = det(a, rowA);
+
+	// แสดงผลลัพธ์ใน TextBox 3
+	Matrix3->Text = "Determinant of Matrix A: " + determinant.ToString();
+
+}
+
+double det(double a[][20], int row) {
+	double ans = 0;
+	double submt[20][20];
+
+	if (row == 1) {
+		return a[0][0];
+	}
+	else if (row == 2) {
+		return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+	}
+	else {
+		for (int k = 0; k < row; k++) {
+			int subi = 0;
+			for (int i = 1; i < row; i++) {
+				int subj = 0;
+				for (int j = 0; j < row; j++) {
+					if (j == k) continue;
+					submt[subi][subj] = a[i][j];
+					subj++;
+				}
+				subi++;
+			}
+			ans += (k % 2 == 0 ? 1 : -1) * a[0][k] * det(submt, row - 1);
+		}
+	}
+	return ans;
+}

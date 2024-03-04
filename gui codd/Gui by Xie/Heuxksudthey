@@ -155,6 +155,34 @@ namespace Heuxksudthey {
 			result->imag = (imag * other->real - real * other->imag) / denominator;
 			return result;
 		}
+		bool operator==(const MyForm^ other)
+		{
+			return (real == other->real) && (imag == other->imag);
+		}
+
+		// member functions
+		double abs()
+		{
+			return Math::Sqrt(real * real + imag * imag);
+		}
+
+		double angle()
+		{
+			return Math::Atan2(imag, real) * 180 / 3.14159265358979;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	protected:
 		/// <summary>
@@ -2236,17 +2264,24 @@ private: System::Void btn0_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Threading::Thread^ thread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::SpeakDelete));
 	thread->Start();
-
-	if (focusedTextBox != nullptr && focusedTextBox->Text->Length > 0) {
-
-		int position = focusedTextBox->SelectionStart;
-
-		if (position > 0) {
-
-			focusedTextBox->Text = focusedTextBox->Text->Remove(position - 1, 1);
-			focusedTextBox->SelectionStart = position - 1;
-
-		}
+	if (focusedTextBox->SelectionLength > 0)
+	{
+		// ถ้ามีข้อความถูกเลือก, ให้ลบข้อความนั้นออก
+		int startIndex = focusedTextBox->SelectionStart;
+		int length = focusedTextBox->SelectionLength;
+		focusedTextBox->Text = focusedTextBox->Text->Remove(startIndex, length);
+	}
+	else if (focusedTextBox->SelectionStart > 0)
+	{
+		// ถ้าไม่มีข้อความถูกเลือก และมีตำแหน่ง cursor ที่มากกว่า 0
+		// ให้ลบอักขระที่ตำแหน่งก่อนหน้า cursor
+		int cursorPos = focusedTextBox->SelectionStart;
+		focusedTextBox->Text = focusedTextBox->Text->Remove(cursorPos - 1, 1);
+		focusedTextBox->SelectionStart = cursorPos - 1; // เลื่อน cursor ไปที่ตำแหน่งก่อนหน้า
+	}
+	else if (focusedTextBox->Text->Length > 0)//ลบตัวขวาสุด
+	{
+		focusedTextBox->Text = focusedTextBox->Text->Remove(focusedTextBox->Text->Length - 1, 1);
 	}
 
 }
@@ -2479,8 +2514,17 @@ private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^
 				searchStart = match.suffix().first;
 			}
 
+			// คำนวณมุม
+			double angle = atan2(totalImaginary, totalReal);
+
+			// แปลงมุมจากเรเดียนเป็นองศา (เพื่อความอ่านง่าย)
+			double angleDegrees = angle * (180 / 3.14159265358979);
+
 			String^ result = (totalReal.ToString() + "+" + totalImaginary.ToString() + "i");
-			textBox1->Text = result;
+			textBox1->Text = result + Environment::NewLine + Environment::NewLine+ Environment::NewLine;
+
+			String^ resultAngle = angleDegrees.ToString() + L"°";
+			textBox1->Text += resultAngle;
 		}
 		else {
 			// ใช้ฟังก์ชัน evaluateEqu
@@ -2489,7 +2533,7 @@ private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^
 			String^ resultString = result.ToString();
 			textBox1->Text = resultString;
 		}
-		}
+	}
 }
 
 void CalculateTrigonometricFunction(String^ expression, String^ function) {

@@ -5,19 +5,32 @@ void ConvertTextToMatrix(String^ text, double matrix[][20], int& row, int& col) 
 	col = 0;
 	for (int i = 0; i < row; i++) {
 		array<String^>^ elements = lines[i]->Split(' ');
-		col = Math::Max(col, elements->Length);
-		for (int j = 0; j < elements->Length; j++) {
+		if (col == 0) {
+			col = elements->Length;
+		}
+		else if (col != elements->Length) {
+			// แสดงข้อความ Error เมื่อจำนวนคอลัมน์ไม่เท่ากัน
+			MessageBox::Show("Error: Number of columns in the matrix does not match.");
+			return;
+		}
+		for (int j = 0; j < col; j++) {
 			matrix[i][j] = Convert::ToDouble(elements[j]);
 		}
 	}
 }
 
+
 private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
-	
 
 	double a[20][20];
 	int rowA, colA;	
 	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+	
+	// ตรวจสอบว่าแถวและคอลัมน์ใน TextBox 1 เท่ากันหรือไม่
+	if (rowA != colA) {
+		Matrix3->Text = "Error: Rows and columns in Matrix A must be equal.";
+		return;
+	}
 
 	// คำนวณ det ของเมทริกซ์ A
 	double determinant = det(a, rowA);

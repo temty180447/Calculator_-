@@ -19,27 +19,6 @@ void ConvertTextToMatrix(String^ text, double matrix[][20], int& row, int& col) 
 	}
 }
 
-
-private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	double a[20][20];
-	int rowA, colA;	
-	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
-	
-	// ตรวจสอบว่าแถวและคอลัมน์ใน TextBox 1 เท่ากันหรือไม่
-	if (rowA != colA) {
-		Matrix3->Text = "Error: Rows and columns in Matrix A must be equal.";
-		return;
-	}
-
-	// คำนวณ det ของเมทริกซ์ A
-	double determinant = det(a, rowA);
-
-	// แสดงผลลัพธ์ใน TextBox 3
-	Matrix3->Text = "Determinant of Matrix A: " + determinant.ToString();
-
-}
-
 double det(double a[][20], int row) {
 	double ans = 0;
 	double submt[20][20];
@@ -67,3 +46,24 @@ double det(double a[][20], int row) {
 	}
 	return ans;
 }
+
+private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	double a[20][20];
+	int rowA, colA;	
+	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+	
+	// ตรวจสอบว่าแถวและคอลัมน์ใน TextBox 1 เท่ากันหรือไม่
+	if (rowA != colA) {
+		Matrix3->Text = "Error: Rows and columns in Matrix A must be equal.";
+		return;
+	}
+
+	// คำนวณ det ของเมทริกซ์ A
+	double determinant = det(a, rowA);
+
+	// แสดงผลลัพธ์ใน TextBox 3
+	Matrix3->Text = "Determinant of Matrix A: " + determinant.ToString();
+
+}
+

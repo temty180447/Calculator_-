@@ -141,28 +141,45 @@ private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::Event
 	
 
 	// ดึงข้อความจาก TextBox 1 และแปลงเป็นเมทริกซ์ A
-	double a[20][20];
-	int rowA, colA;
-	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+double a[20][20];
+int rowA, colA;
+ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
 
-	// ดึงข้อความจาก TextBox 3 และแปลงเป็นเมทริกซ์ B
-	double b[20][20];
-	int rowB, colB;
-	ConvertTextToMatrix(Matrix3->Text, b, rowB, colB);
+// ดึงข้อความจาก TextBox 3 และแปลงเป็นเมทริกซ์ B
+double b[20][20];
+int rowB, colB;
+ConvertTextToMatrix(Matrix3->Text, b, rowB, colB);
 
-	// คำนวณ inverse matrix ของ A
-	double adjA[20][20];
-	adjoint(rowA, a, adjA);
+// คำนวณ inverse matrix ของ A
+double adjA[20][20];
+adjoint(rowA, a, adjA);
 
-	double detA = det(a, rowA);
-	inverse(rowA, detA, adjA);
+double detA = det(a, rowA);
+inverse(rowA, detA, adjA);
 
-	// คำนวณผลลัพธ์ของ inverse(A) * B
-	double result[20][20];
-	multiplyMatrix(rowA, colA, colB, adjA, b, result);
+// คำนวณผลลัพธ์ของ inverse(A) * B
+double result[20][20];
+multiplyMatrix(rowA, colA, colB, adjA, b, result);
 
-	// แสดงผลลัพธ์ใน TextBox 4
+// แสดงผลลัพธ์ใน TextBox 4
+if (rowA == 1) {
+	// สมการเชิงเส้นเป็นระบบสมการ 1 สมการ 1 ตัวแปร
+	// แสดงผลลัพธ์ในรูปแบบ x = ...
+	Matrix4->Text = "x = " + result[0][0].ToString() + "\r\n";
+	
+}
+// แสดงผลลัพธ์ใน TextBox 4
+else if (rowA == 2) {
+	// สมการเชิงเส้นเป็นระบบสมการ 2 สมการ 2 ตัวแปร
+	// แสดงผลลัพธ์ในรูปแบบ x = ..., y = ...
+	Matrix4->Text = "x = " + result[0][0].ToString() + "\r\n";
+	Matrix4->Text += "y = " + result[1][0].ToString() + "\r\n";
+}
+else if (rowA == 3) {
+	// สมการเชิงเส้นเป็นระบบสมการ 3 สมการ 2 ตัวแปร
+	// แสดงผลลัพธ์ในรูปแบบ x = ..., y = ...
 	Matrix4->Text = "x = " + result[0][0].ToString() + "\r\n";
 	Matrix4->Text += "y = " + result[1][0].ToString() + "\r\n";
 	Matrix4->Text += "z = " + result[2][0].ToString() + "\r\n";
+}
 }

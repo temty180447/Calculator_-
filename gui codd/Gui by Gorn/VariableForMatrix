@@ -1,0 +1,168 @@
+// ฟังก์ชันสำหรับแปลงข้อความใน TextBox เป็นเมทริกซ์
+void ConvertTextToMatrix(String^ text, double matrix[][20], int& row, int& col) {
+	array<String^>^ lines = text->Split(Environment::NewLine->ToCharArray(), StringSplitOptions::RemoveEmptyEntries);
+	row = lines->Length;
+	col = 0;
+	for (int i = 0; i < row; i++) {
+		array<String^>^ elements = lines[i]->Split(' ');
+		if (col == 0) {
+			col = elements->Length;
+		}
+		else if (col != elements->Length) {
+			// แสดงข้อความ Error เมื่อจำนวนคอลัมน์ไม่เท่ากัน
+			MessageBox::Show("Error: Number of columns in the matrix does not match.");
+			return;
+		}
+		for (int j = 0; j < col; j++) {
+			matrix[i][j] = Convert::ToDouble(elements[j]);
+		}
+	}
+}
+
+// ฟังก์ชันสำหรับแปลงเมทริกซ์เป็นข้อความ
+String^ ConvertMatrixToText(double matrix[][20], int row, int col) {
+	String^ resultText = "";
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			resultText += matrix[i][j].ToString() + " ";
+		}
+		resultText += Environment::NewLine;
+	}
+	return resultText;
+}
+
+// ฟังก์ชันสำหรับดำเนินการตามเงื่อนไขที่กำหนด
+void PerformOperation(String^ operation, double a[][20], double b[][20], double ans[][20], int row, int col1, int col2) {
+	if (operation == "+") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col1; j++) {
+				ans[i][j] = a[i][j] + b[i][j];
+			}
+		}
+	}
+	else if (operation == "-") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col1; j++) {
+				ans[i][j] = a[i][j] - b[i][j];
+			}
+		}
+	}
+	else if (operation == "*") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col2; j++) {
+				for (int k = 0; k < col1; k++) {
+					ans[i][j] += a[i][k] * b[k][j];
+				}
+			}
+		}
+	}
+}
+// ฟังก์ชัน adjoint
+void adjoint(int row, double a[][20], double adj[][20]) {
+	if (row == 2) {
+		adj[0][0] = a[1][1];
+		adj[0][1] = -a[0][1];
+		adj[1][0] = -a[1][0];
+		adj[1][1] = a[0][0];
+	}
+	else if (row == 3) {
+		double cof[20][20];
+		int cnt_k, cnt_l, one, two;
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				cnt_k = 0;
+				one = two = 1;
+				for (int k = 0; k < 3; k++) {
+					if (k == i) continue;
+					cnt_l = 0;
+					for (int l = 0; l < 3; l++) {
+						if (l == j) continue;
+
+						if (cnt_k == cnt_l) one *= a[k][l];
+						else two *= a[k][l];
+
+						cnt_l++;
+					}
+					cnt_k++;
+				}
+				cof[i][j] = one - two;
+
+				if ((i + j) % 2 == 1) cof[i][j] = cof[i][j] * (-1);
+			}
+		}
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				adj[i][j] = cof[j][i];
+			}
+		}
+	}
+}
+   
+// ฟังก์ชัน inverse
+void inverse(int row, double det, double adj[][20]) {
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < row; j++) {
+			adj[i][j] = adj[i][j] * (1.0 / det);
+		}
+	}
+}
+
+double det(double a[][20], int row) {
+	double ans = 0;
+	double submt[20][20];
+
+	if (row == 1) {
+		return a[0][0];
+	}
+	else if (row == 2) {
+		return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+	}
+	else {
+		for (int k = 0; k < row; k++) {
+			int subi = 0;
+			for (int i = 1; i < row; i++) {
+				int subj = 0;
+				for (int j = 0; j < row; j++) {
+					if (j == k) continue;
+					submt[subi][subj] = a[i][j];
+					subj++;
+				}
+				subi++;
+			}
+			ans += (k % 2 == 0 ? 1 : -1) * a[0][k] * det(submt, row - 1);
+		}
+	}
+	return ans;
+}
+
+private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+
+	// ดึงข้อความจาก TextBox 1 และแปลงเป็นเมทริกซ์ A
+	double a[20][20];
+	int rowA, colA;
+	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+
+	// ดึงข้อความจาก TextBox 3 และแปลงเป็นเมทริกซ์ B
+	double b[20][20];
+	int rowB, colB;
+	ConvertTextToMatrix(Matrix3->Text, b, rowB, colB);
+
+	// คำนวณ inverse matrix ของ A
+	double adjA[20][20];
+	adjoint(rowA, a, adjA);
+
+	double detA = det(a, rowA);
+	inverse(rowA, detA, adjA);
+
+	// คำนวณผลลัพธ์ของ inverse(A) * B
+	double result[20][20];
+	multiplyMatrix(rowA, colA, colB, adjA, b, result);
+
+	// แสดงผลลัพธ์ใน TextBox 4
+	Matrix4->Text = "x = " + result[0][0].ToString() + "\r\n";
+	Matrix4->Text += "y = " + result[1][0].ToString() + "\r\n";
+	Matrix4->Text += "z = " + result[2][0].ToString() + "\r\n";
+}

@@ -1,0 +1,83 @@
+void sQuadratic(double a, double b, double c) {
+	double dcmn = b * b - 4 * a * c;
+	if (dcmn > 0) {
+		double x1 = (-b + sqrt(dcmn)) / (2 * a);
+		double x2 = (-b - sqrt(dcmn)) / (2 * a);
+		MessageBox::Show("Roots: x1 = " + x1 + ", x2 = " + x2);
+	}
+	else if (dcmn == 0) {
+		double x = -b / (2 * a);
+		MessageBox::Show("Repeated root: x = " + x);
+	}
+	else {
+		MessageBox::Show("No roots");
+	}
+}
+
+void sCubic(double a, double b, double c, double d) {
+	double q = (3 * a * c - b * b) / (9 * a * a);
+	double r = (9 * a * b * c - 27 * a * a * d - 2 * b * b * b) / (54 * a * a * a);
+	double dcmn = q * q * q + r * r;
+
+	if (dcmn > 0) {
+		double s = cbrt(r + sqrt(dcmn));
+		double t = cbrt(r - sqrt(dcmn));
+		double x1 = -b / (3 * a) + (s + t);
+		MessageBox::Show("Root: x = " + x1);
+	}
+	else if (dcmn == 0) {
+		double x1 = -b / (3 * a) - 2 * cbrt(r);
+		double x2 = -b / (3 * a) + cbrt(r);
+		MessageBox::Show("Repeated root: x1 = x2 = " + x1 + "\nRoot: x3 = " + x2);
+	}
+	else {
+		double theta = acos(r / sqrt(-(q * q * q)));
+		double x1 = -2 * sqrt(q) * cos(theta / 3) - b / (3 * a);
+		double x2 = -2 * sqrt(q) * cos((theta + 2 * 3.14) / 3) - b / (3 * a);
+		double x3 = -2 * sqrt(q) * cos((theta - 2 * 3.14) / 3) - b / (3 * a);
+		MessageBox::Show("Root: x1 = " + x1 + "\nRoot: x2 = " + x2 + "\nRoot: x3 = " + x3);
+	}
+}
+
+void sLinear(double a, double b) {
+	if (a == 0) {
+		if (b == 0) {
+			MessageBox::Show("Infinite solutions");
+		}
+		else {
+			MessageBox::Show("No solution");
+		}
+	}
+	else {
+		double x = -b / a;
+		MessageBox::Show("Solution: x = " + x);
+	}
+}
+String^ input = textBox1->Text;
+
+textBox1->Text = "";
+
+array<String^>^ values = input->Split(' ');
+
+int count = values->Length;
+if (count == 2) {
+	double a = Convert::ToDouble(values[0]);
+	double b = Convert::ToDouble(values[1]);
+	sLinear(a, b);
+}
+else if (count == 3) {
+	double a = Convert::ToDouble(values[0]);
+	double b = Convert::ToDouble(values[1]);
+	double c = Convert::ToDouble(values[2]);
+	sQuadratic(a, b, c);
+}
+else if (count == 4) {
+	double a = Convert::ToDouble(values[0]);
+	double b = Convert::ToDouble(values[1]);
+	double c = Convert::ToDouble(values[2]);
+	double d = Convert::ToDouble(values[3]);
+	sCubic(a, b, c, d);
+}
+else {
+	textBox1->Text = "Invalid input";
+}

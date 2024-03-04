@@ -84,6 +84,4 @@ private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::Event
 	// แปลงเมทริกซ์ผลลัพธ์เป็นข้อความและแสดงใน TextBox 3
 	Matrix3->Text = ConvertMatrixToText(ans, rowA, colB);
 
-
-
 }

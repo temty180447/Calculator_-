@@ -53,15 +53,15 @@ void PerformOperation(String^ operation, double a[][20], double b[][20], double 
 
 	   
 private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
-	// เรียกใช้ฟังก์ชันหลักหรือโค้ดที่ทำงานเมื่อกดปุ่ม btnEqualMatrix และแสดงผลลัพธ์ใน TextBox 3
+	// เรียกใช้ฟังก์ชันหลักหรือโค้ดที่ทำงานเมื่อกดปุ่ม btnEqualMatrix และแสดงผลลัพธ์ใน Matrix3
 	String^ operation = MatrixCalculate->Text->Trim();
 	double a[20][20], b[20][20], ans[20][20] = { 0 }; // เมทริกซ์ A, B และผลลัพธ์
 	int rowA, colA, rowB, colB; // ขนาดของเมทริกซ์ A และ B
 
-	// รับค่าเมทริกซ์ A จาก TextBox 1 และแปลงเป็นเมทริกซ์
+	// รับค่าเมทริกซ์ A จาก textBox ชื่อ Matrix1 และแปลงเป็นเมทริกซ์
 	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
 
-	// รับค่าเมทริกซ์ B จาก TextBox 2 และแปลงเป็นเมทริกซ์
+	// รับค่าเมทริกซ์ B จาก textBox ชื่อ Matrix2 และแปลงเป็นเมทริกซ์
 	ConvertTextToMatrix(Matrix2->Text, b, rowB, colB);
 
 	// ตรวจสอบขนาดของเมทริกซ์

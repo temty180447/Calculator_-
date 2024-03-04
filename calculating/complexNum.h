@@ -48,12 +48,5 @@ double compNum::angle(){
 
 int main(){
 
-    double x,y,i,j;
-    cin >> x >> y;
-    cin >> i >> j;
-
-    compNum A(x,y);
-    compNum *B = new compNum(i,j);
-
     return 0;
 }

@@ -1,0 +1,89 @@
+// ฟังก์ชันสำหรับแปลงข้อความใน TextBox เป็นเมทริกซ์
+void ConvertTextToMatrix(String^ text, double matrix[][20], int& row, int& col) {
+	array<String^>^ lines = text->Split(Environment::NewLine->ToCharArray(), StringSplitOptions::RemoveEmptyEntries);
+	row = lines->Length;
+	col = 0;
+	for (int i = 0; i < row; i++) {
+		array<String^>^ elements = lines[i]->Split(' ');
+		col = Math::Max(col, elements->Length);
+		for (int j = 0; j < elements->Length; j++) {
+			matrix[i][j] = Convert::ToDouble(elements[j]);
+		}
+	}
+}
+
+// ฟังก์ชันสำหรับแปลงเมทริกซ์เป็นข้อความ
+String^ ConvertMatrixToText(double matrix[][20], int row, int col) {
+	String^ resultText = "";
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			resultText += matrix[i][j].ToString() + " ";
+		}
+		resultText += Environment::NewLine;
+	}
+	return resultText;
+}
+
+// ฟังก์ชันสำหรับดำเนินการตามเงื่อนไขที่กำหนด
+void PerformOperation(String^ operation, double a[][20], double b[][20], double ans[][20], int row, int col1, int col2) {
+	if (operation == "+") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col1; j++) {
+				ans[i][j] = a[i][j] + b[i][j];
+			}
+		}
+	}
+	else if (operation == "-") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col1; j++) {
+				ans[i][j] = a[i][j] - b[i][j];
+			}
+		}
+	}
+	else if (operation == "*") {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col2; j++) {
+				for (int k = 0; k < col1; k++) {
+					ans[i][j] += a[i][k] * b[k][j];
+				}
+			}
+		}
+	}
+}
+
+	   
+private: System::Void btnEqualMatrix_Click(System::Object^ sender, System::EventArgs^ e) {
+	// เรียกใช้ฟังก์ชันหลักหรือโค้ดที่ทำงานเมื่อกดปุ่ม btnEqualMatrix และแสดงผลลัพธ์ใน TextBox 3
+	String^ operation = MatrixCalculate->Text->Trim();
+	double a[20][20], b[20][20], ans[20][20] = { 0 }; // เมทริกซ์ A, B และผลลัพธ์
+	int rowA, colA, rowB, colB; // ขนาดของเมทริกซ์ A และ B
+
+	// รับค่าเมทริกซ์ A จาก TextBox 1 และแปลงเป็นเมทริกซ์
+	ConvertTextToMatrix(Matrix1->Text, a, rowA, colA);
+
+	// รับค่าเมทริกซ์ B จาก TextBox 2 และแปลงเป็นเมทริกซ์
+	ConvertTextToMatrix(Matrix2->Text, b, rowB, colB);
+
+	// ตรวจสอบขนาดของเมทริกซ์
+	if (operation == "+" || operation == "-") {
+		if (rowA != rowB || colA != colB) {
+			MessageBox::Show("Matrix dimensions must be equal for addition or subtraction.");
+			return;
+		}
+	}
+	else if (operation == "*") {
+		if (colA != rowB) {
+			MessageBox::Show("Number of columns in Matrix A must be equal to number of rows in Matrix B for multiplication.");
+			return;
+		}
+	}
+
+	// ดำเนินการตามเงื่อนไขที่กำหนด
+	PerformOperation(operation, a, b, ans, rowA, colA, colB);
+
+	// แปลงเมทริกซ์ผลลัพธ์เป็นข้อความและแสดงใน TextBox 3
+	Matrix3->Text = ConvertMatrixToText(ans, rowA, colB);
+
+
+
+}

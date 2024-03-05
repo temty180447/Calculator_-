@@ -49,7 +49,7 @@ void sCubic(double a, double b, double c, double d) {
 void sLinear(double a, double b) {
     if (a == 0) {
         if (b == 0) {
-            cout << "Infinite solutions" << endl;
+            cout << "Infinite solutions" << endl; 
         } else {
             cout << "No solution" << endl;
         }

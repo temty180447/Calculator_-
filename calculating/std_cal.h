@@ -10,8 +10,8 @@ using namespace std;
 bool isOpran(char ch) {
     return isdigit(ch) || ch == '.';
 }
-double evaluateOpran(const string& opranStr) {
-    return stod(opranStr);
+long double evaluateOpran(const string& opranStr) {
+    return stold(opranStr);
 }
 
 int precedence(char op) {
@@ -21,12 +21,12 @@ int precedence(char op) {
     return 0;
 }
 
-double power(double base, double exponent) {
+long double power(long double base, long double exponent) {
     return pow(base, exponent);
 }
 
-double evaluateEqu(const string& equ) {
-    stack<double> oprans;
+long double evaluateEqu(const string& equ) {
+    stack<long double> oprans;
     stack<char> optors;
 
     string opranStr; // ใช้เก็บเลข
@@ -42,8 +42,8 @@ double evaluateEqu(const string& equ) {
             oprans.push(evaluateOpran(opranStr)); //เพิ่มเลขลงแต็ก
             opranStr = ""; // รีเซ็ตค่า
             while (!optors.empty() && optors.top() != '(') {
-                double b = oprans.top(); oprans.pop();
-                double a = oprans.top(); oprans.pop();
+                long double b = oprans.top(); oprans.pop();
+                long double a = oprans.top(); oprans.pop();
                 char op = optors.top(); optors.pop();
                     if (op == '+') oprans.push(a + b);
                     else if (op == '-') oprans.push(a - b);
@@ -59,8 +59,8 @@ double evaluateEqu(const string& equ) {
                     opranStr = ""; // ล้างค่า
             }
             while (!optors.empty() && precedence(ch) <= precedence(optors.top())) {
-                double b = oprans.top(); oprans.pop();
-                double a = oprans.top(); oprans.pop();
+                long double b = oprans.top(); oprans.pop();
+                long double a = oprans.top(); oprans.pop();
                 char op = optors.top(); optors.pop();
                 if (op == '+') oprans.push(a + b);
                 else if (op == '-') oprans.push(a - b);
@@ -77,8 +77,8 @@ double evaluateEqu(const string& equ) {
     }
 
     while (!optors.empty()) {
-        double b = oprans.top(); oprans.pop();
-        double a = oprans.top(); oprans.pop();
+        long double b = oprans.top(); oprans.pop();
+        long double a = oprans.top(); oprans.pop();
         char op = optors.top(); optors.pop();
         if (op == '+') oprans.push(a + b);
         else if (op == '-') oprans.push(a - b);

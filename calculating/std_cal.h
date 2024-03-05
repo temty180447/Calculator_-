@@ -37,9 +37,11 @@ long double evaluateEqu(const string& equ) {
         } 
         else if (ch == '(') {
             optors.push(ch);
+
         }
         else if (ch == ')') {
             oprans.push(evaluateOpran(opranStr)); //เพิ่มเลขลงแต็ก
+
             opranStr = ""; // รีเซ็ตค่า
             while (!optors.empty() && optors.top() != '(') {
                 long double b = oprans.top(); oprans.pop();
@@ -92,7 +94,9 @@ long double evaluateEqu(const string& equ) {
 
 int main() {
     string equ;
+
     cout << "Enter: ";
+
     getline(cin, equ);
 
     cout << "Result: " << evaluateEqu(equ);

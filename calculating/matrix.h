@@ -110,7 +110,7 @@ void adjoint(int row,double a[][20],double adj[][20]){
                 }
                 cof[i][j] = one - two;
             
-                if((i + j) % 2 == 1) cof[i][j] = cof[i][j] *(-1);
+                cof[i][j] = ((i + j) % 2 == 1 ? -1 : 1) * cof[i][j];
             }
         }
     

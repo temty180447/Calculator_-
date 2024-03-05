@@ -59,7 +59,6 @@ void sLinear(double a, double b) {
     }
 }
 
-
     double a, b, c, d;
         //(ax^3 + bx^2 + cx + d)
             sCubic(a, b, c, d);

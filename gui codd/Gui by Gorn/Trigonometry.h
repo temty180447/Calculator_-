@@ -1,11 +1,26 @@
 private: System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ expression = textBox1->Text->Trim(); // ดึงข้อมูลที่ผู้ใช้ป้อนใน textBox1
 
-	// ตรวจสอบว่ามีการป้อนข้อมูลหรือไม่
-	if (expression->Length == 0) {
-		// ถ้าไม่มีข้อมูลให้ไม่ดำเนินการใด ๆ และออกจากฟังก์ชัน
-		return;
+// ตรวจสอบว่ามีการป้อนข้อมูลหรือไม่
+if (expression->Length == 0) {
+	// ถ้าไม่มีข้อมูลให้ไม่ดำเนินการใด ๆ และออกจากฟังก์ชัน
+	return;
+}
+
+int openParenthesisCount = 0;
+int closeParenthesisCount = 0;
+for each (Char c in expression) {
+	if (c == '(') {
+		openParenthesisCount++;
 	}
+	else if (c == ')') {
+		closeParenthesisCount++;
+	}
+}
+if (openParenthesisCount != closeParenthesisCount) {
+	textBox1->Text = "Error: Parentheses mismatch";
+	return;
+}
 
 	// ตรวจสอบว่าผู้ใช้ป้อนค่า sin(, cos( หรือ tan( หรือไม่
 	if (expression->StartsWith("sin(")) {

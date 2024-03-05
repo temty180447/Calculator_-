@@ -1,9 +1,12 @@
 # NAME: Dararat Buayim
-#fksj[gjfos[T ID: 660610759
-# NAME:Todfslmg[odkf]
-# STUDENT ID:
-#gfms[AME:
-# STUDENT ID:
-# NAME:
-# STUDENT ID:
-fopsijb-r9=sni0r=s
+# STUDENT ID: 660610759
+# NAME:Thanakorn Saokum
+# STUDENT ID: 660610761
+# NAME: Patiphan Leknok 
+# STUDENT ID: 660610771
+# NAME: Phetmongkhon Rungrat
+# STUDENT ID: 660610781
+# NAME: Wanchai Lungnoeng
+# STUDENT ID: 660610793
+# NAME: Artinan Changsawang
+# STUDENT ID: 660610807

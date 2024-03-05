@@ -1,18 +1,26 @@
 #include <iostream>
+#include <sstream>
+#include <cmath>
+#include <regex>
 #include <stack>
 #include <string>
 #include <cctype>
-#include <cmath>
+#include <msclr/marshal_cppstd.h>
 
-using namespace std;
+String^ input = textBox1->Text; // รับข้อความจาก TextBox
+std::string inputString = msclr::interop::marshal_as<std::string>(input); // แปลง String^ เป็น string
+double result = evaluateEqu(inputString);
 
-//func ตรวจว่าเป็นตัวเลขหรือ .
+// แปลงผลลัพธ์เป็น String^ เพื่อแสดงบน TextBox
+String^ resultString = result.ToString();
+textBox1->Text = resultString;
 
+// func ตรวจว่าเป็นตัวอักษรตัวเลขหรือไม่
 bool isOpran(char ch) {
-    return isdigit(ch) || ch == '.';
+    return std::isdigit(ch) || ch == '.';
 }
-double evaluateOpran(const string& opranStr) {
-    return stod(opranStr);
+double evaluateOpran(const std::string& opranStr) {
+    return std::stod(opranStr);
 }
 
 int precedence(char op) {
@@ -23,14 +31,14 @@ int precedence(char op) {
 }
 
 double power(double base, double exponent) {
-    return pow(base, exponent);
+    return std::pow(base, exponent);
 }
 
-double evaluateEqu(const string& equ) {
-    stack<double> oprans;
-    stack<char> optors;
+double evaluateEqu(const std::string& equ) {
+    std::stack<double> oprans;
+    std::stack<char> optors;
 
-    string opranStr; // ใช้เก็บเลข
+    std::string opranStr; // ใช้เก็บเลข
     for (char ch : equ) {
         if (ch == ' ') continue; // ข้ามช่องว่าง
         else if (isOpran(ch)) {
@@ -38,11 +46,9 @@ double evaluateEqu(const string& equ) {
         } 
         else if (ch == '(') {
             optors.push(ch);
-
-        }
+        } 
         else if (ch == ')') {
-            oprans.push(evaluateOpran(opranStr)); //เพิ่มเลขลงแต็ก
-
+            oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขลง stack
             opranStr = ""; // รีเซ็ตค่า
             while (!optors.empty() && optors.top() != '(') {
                 double b = oprans.top(); oprans.pop();
@@ -54,14 +60,12 @@ double evaluateEqu(const string& equ) {
                     else if (op == '/') oprans.push(a / b);
                     else if (op == '^') oprans.push(power(a, b));
             }
-
-            if (!optors.empty()) optors.pop(); // ลบวงเล็บเปิดทิ้ง
+            if (!optors.empty()) optors.pop(); // ลบวงเล็บซ้ายทิ้ง
             } 
         else {
                     if (!opranStr.empty()) {
-                      oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขในแต็ก
-                    opranStr = ""; // ล้างค่า
-
+                      oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขหรือทศนิยมลงใน stack
+                    opranStr = ""; // รีเซ็ตค่า
             }
             while (!optors.empty() && precedence(ch) <= precedence(optors.top())) {
                 double b = oprans.top(); oprans.pop();
@@ -76,9 +80,9 @@ double evaluateEqu(const string& equ) {
             optors.push(ch);
         }
     }
-    
+
     if (!opranStr.empty()) {
-        oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขในแต็ก
+        oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขใน stack
     }
 
     while (!optors.empty()) {
@@ -93,16 +97,4 @@ double evaluateEqu(const string& equ) {
     }
 
     return oprans.top();
-}
-
-int main() {
-    string equ;
-
-    cout << "Enter: ";
-
-    getline(cin, equ);
-
-    cout << "Result: " << evaluateEqu(equ);
-  
-    return 0;
 }

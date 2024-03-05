@@ -1,0 +1,13 @@
+TextBox^ focusedTextBox;
+this->textBox2->Click += gcnew System::EventHandler(this, &MyForm::textBox2_Click);
+private: System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (focusedTextBox != nullptr) {
+		focusedTextBox->Text += "1";
+	}
+}
+private: System::Void textBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	focusedTextBox = textBox1;
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	focusedTextBox = textBox1;
+}

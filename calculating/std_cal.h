@@ -6,7 +6,8 @@
 
 using namespace std;
 
-//func ตรวจว่าเป็นตัวอักษรตัวเลขหรือไม่
+//func ตรวจว่าเป็นตัวเลขหรือ .
+
 bool isOpran(char ch) {
     return isdigit(ch) || ch == '.';
 }
@@ -37,9 +38,11 @@ double evaluateEqu(const string& equ) {
         } 
         else if (ch == '(') {
             optors.push(ch);
-        } 
+
+        }
         else if (ch == ')') {
-            oprans.push(evaluateOpran(opranStr)); //เพิ่มเลขลง stack
+            oprans.push(evaluateOpran(opranStr)); //เพิ่มเลขลงแต็ก
+
             opranStr = ""; // รีเซ็ตค่า
             while (!optors.empty() && optors.top() != '(') {
                 double b = oprans.top(); oprans.pop();
@@ -51,12 +54,14 @@ double evaluateEqu(const string& equ) {
                     else if (op == '/') oprans.push(a / b);
                     else if (op == '^') oprans.push(power(a, b));
             }
-            if (!optors.empty()) optors.pop(); // ลบวงเล็บซ้ายทิ้ง
+
+            if (!optors.empty()) optors.pop(); // ลบวงเล็บเปิดทิ้ง
             } 
         else {
                     if (!opranStr.empty()) {
-                      oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขหรือทศนิยมลงใน stack
-                    opranStr = ""; // รีเซ็ตค่า
+                      oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขในแต็ก
+                    opranStr = ""; // ล้างค่า
+
             }
             while (!optors.empty() && precedence(ch) <= precedence(optors.top())) {
                 double b = oprans.top(); oprans.pop();
@@ -71,9 +76,9 @@ double evaluateEqu(const string& equ) {
             optors.push(ch);
         }
     }
-
+    
     if (!opranStr.empty()) {
-        oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขใน stack
+        oprans.push(evaluateOpran(opranStr)); // เพิ่มเลขในแต็ก
     }
 
     while (!optors.empty()) {
@@ -92,7 +97,9 @@ double evaluateEqu(const string& equ) {
 
 int main() {
     string equ;
-    cout << "Enter an expression: ";
+
+    cout << "Enter: ";
+
     getline(cin, equ);
 
     cout << "Result: " << evaluateEqu(equ);
